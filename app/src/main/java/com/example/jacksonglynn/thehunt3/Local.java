@@ -25,9 +25,10 @@ public class Local extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rules_page);
+        setContentView(R.layout.local_screen);
+        //setContentView(R.layout.activity_rules_page);
 
-        preSaved = (Button) findViewById(R.id.preSaved);
+        preSaved = (Button) findViewById(R.id.PreSaved);
         Easy = (Button) findViewById(R.id.Easy);
         Hard = (Button) findViewById(R.id.Hard);
 
