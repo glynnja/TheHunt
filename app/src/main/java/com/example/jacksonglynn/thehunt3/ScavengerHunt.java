@@ -51,7 +51,7 @@ public class ScavengerHunt extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent RulesPage = new Intent(MainActivity.this, Rules.class);
-                    startActivity(Rules);
+                    startActivity(RulesPage);
                 }
             });
 
