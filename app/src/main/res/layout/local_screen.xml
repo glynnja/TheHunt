@@ -5,23 +5,30 @@
     android:orientation="vertical">
 
     <Button
-        android:text="Button"
+        android:text="Easy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Easy"
         android:layout_weight="1.00" />
 
     <Button
-        android:text="Button"
+        android:text="PreSaved"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/PreSaved"
         android:layout_weight="1.00" />
 
     <Button
-        android:text="Button"
+        android:text="Hard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Hard"
+        android:layout_weight="1.00" />
+
+    <Button
+        android:text="Back To Home Page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/back"
         android:layout_weight="1.00" />
 </LinearLayout>

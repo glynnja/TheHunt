@@ -5,23 +5,30 @@
     android:orientation="vertical">
 
     <Button
-        android:text="Button"
+        android:text="Local"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Local"
         android:layout_weight="1.00" />
 
     <Button
-        android:text="Button"
+        android:text="Multiplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Multiplayer"
         android:layout_weight="1.00" />
 
     <Button
-        android:text="Button"
+        android:text="Frequently Asked Questions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/faq"
+        android:layout_weight="1.00" />
+
+    <Button
+        android:text="Back To Home Page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/back"
         android:layout_weight="1.00" />
 </LinearLayout>

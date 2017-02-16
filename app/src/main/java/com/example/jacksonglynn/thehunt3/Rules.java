@@ -14,7 +14,7 @@ import android.widget.Button;
 
 public class Rules extends ActionBarActivity {
 
-    Button Local, Multiplayer, faq;
+    Button Local, Multiplayer, faq, back;
 
 
     @Override
@@ -25,11 +25,12 @@ public class Rules extends ActionBarActivity {
         Local = (Button) findViewById(R.id.Local);
         Multiplayer = (Button) findViewById(R.id.Multiplayer);
         faq = (Button) findViewById(R.id.faq);
+        back = (Button) findViewById(R.id.back);
 
         Local.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ScavengerHunt2.class);
+                Intent intent = new Intent(getApplicationContext(), LocalRules.class);
                 startActivity(intent);
             }
         });
@@ -37,7 +38,7 @@ public class Rules extends ActionBarActivity {
         Multiplayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ScavengerHunt2.class);
+                Intent intent = new Intent(getApplicationContext(), MultiplayerRules.class);
                 startActivity(intent);
             }
         });
@@ -46,6 +47,14 @@ public class Rules extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), FrequentlyAskedQuestions.class);
+                startActivity(intent);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ScavengerHunt.class);
                 startActivity(intent);
             }
         });

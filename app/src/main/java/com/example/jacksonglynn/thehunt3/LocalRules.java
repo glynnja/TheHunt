@@ -1,7 +1,7 @@
 package com.example.jacksonglynn.thehunt3;
 
 /**
- * Created by Jackson Glynn on 2/15/2017.
+ * Created by Jackson Glynn on 2/16/2017.
  */
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -13,20 +13,19 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
-public class FrequentlyAskedQuestions extends ActionBarActivity {
-
+public class LocalRules extends ActionBarActivity {
     Button back;
     private TextView ffaRules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.faq_screen);
+        setContentView(R.layout.local_rules);
 
         back = (Button) findViewById(R.id.back);
         ffaRules = (TextView) findViewById(R.id.ffaRules);
 
-        ffaRules.setText("How does one create a Scavenger Hunt? \n\n"
+        ffaRules.setText("Create your own local scavenger hunt? \n\n"
                 +"1. \n\n"
                 +"2. \n\n"
                 +"3. \n\n"
@@ -43,5 +42,4 @@ public class FrequentlyAskedQuestions extends ActionBarActivity {
             }
         });
     }
-
 }

@@ -19,7 +19,7 @@ import android.widget.Button;
 
 public class Local extends ActionBarActivity {
 
-    Button preSaved, Easy, Hard;
+    Button preSaved, Easy, Hard, back;
 
 
     @Override
@@ -31,6 +31,8 @@ public class Local extends ActionBarActivity {
         preSaved = (Button) findViewById(R.id.PreSaved);
         Easy = (Button) findViewById(R.id.Easy);
         Hard = (Button) findViewById(R.id.Hard);
+        back = (Button) findViewById(R.id.back);
+
 
         preSaved.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,13 @@ public class Local extends ActionBarActivity {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ScavengerHunt.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

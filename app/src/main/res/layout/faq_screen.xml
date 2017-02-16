@@ -4,24 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:text="Local"
+    <TextView
+        android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Local"
+        android:id="@+id/ffaRules"
         android:layout_weight="1.00" />
 
     <Button
-        android:text="Multiplayer"
+        android:text="Back to Rules"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Multiplayer"
-        android:layout_weight="1.00" />
-
-    <Button
-        android:text="Rules"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Rules"
-        android:layout_weight="1.00" />
+        android:id="@+id/back"
+        android:layout_weight="0.10" />
 </LinearLayout>
