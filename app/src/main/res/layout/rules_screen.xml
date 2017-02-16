@@ -22,6 +22,6 @@
         android:text="Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Frequently Asked Questions"
+        android:id="@+id/faq"
         android:layout_weight="1.00" />
 </LinearLayout>
