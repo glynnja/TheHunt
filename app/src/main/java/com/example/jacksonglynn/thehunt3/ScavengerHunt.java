@@ -1,48 +1,54 @@
 package com.example.jacksonglynn.thehunt3;
 
 import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.view.View.OnClickListener;
 
-public class ScavengerHunt extends AppCompatActivity {
-
+public class ScavengerHunt extends AppCompatActivity{ //extends Activity{//AppCompatActivity {
+Button Local, Multiplayer, Rules;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scavenger_hunt);
+        setContentView(R.layout.main_screen);
+        addListenerOnButton();
     }
-    public class MainActivity extends ActionBarActivity {
+   // public class MainActivity extends ActionBarActivity {
+public void addListenerOnButton(){
+    final Context context = this;
+       // Button Local, Multiplayer, Rules;
 
-        private Button local, multiplayer, Rules;
+//        @Override
+//        public void onCreate(Bundle savedInstanceState) {
+//            super.onCreate(savedInstanceState);
+//            setContentView(R.layout.main_screen);
+//            addListenerOnButton();
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.main_screen);
-
-            local = (Button) findViewById(R.id.Local);
-            multiplayer = (Button) findViewById(R.id.Multiplayer);
+            Local = (Button) findViewById(R.id.Local);
+            Multiplayer = (Button) findViewById(R.id.Multiplayer);
             Rules = (Button) findViewById(R.id.Rules);
 
 
-            local.setOnClickListener(new View.OnClickListener() {
+            Local.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent launchMap = new Intent(MainActivity.this, Local.class);
-                    startActivity(launchMap);
-                }
+                        Intent launchMap = new Intent(context, Local.class);
+                        startActivity(launchMap);
+                    }
             });
 
-            multiplayer.setOnClickListener(new View.OnClickListener() {
+            Multiplayer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent launchMap = new Intent(MainActivity.this, Multiplayer.class);
+                    Intent launchMap = new Intent(context, Multiplayer.class);
                     startActivity(launchMap);
                 }
             });
@@ -50,7 +56,7 @@ public class ScavengerHunt extends AppCompatActivity {
             Rules.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent RulesPage = new Intent(MainActivity.this, Rules.class);
+                    Intent RulesPage = new Intent(context, Rules.class);
                     startActivity(RulesPage);
                 }
             });
@@ -80,4 +86,4 @@ public class ScavengerHunt extends AppCompatActivity {
 //            return super.onOptionsItemSelected(item);
 //        }
     }
-}
+//}

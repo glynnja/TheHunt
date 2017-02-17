@@ -17,13 +17,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class Local extends ActionBarActivity {
+public class Local extends ScavengerHunt {//ActionBarActivity {
 
     Button preSaved, Easy, Hard, back;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.local_screen);
         //setContentView(R.layout.activity_rules_page);
