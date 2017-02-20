@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="109dp"
         android:id="@+id/sorry"
-        android:layout_weight="1" />
+        android:layout_weight="0.96" />
 
     <Button
         android:text="Back to Main Menu"

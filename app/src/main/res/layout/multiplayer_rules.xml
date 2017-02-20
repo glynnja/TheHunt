@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ffaRules"
-        android:layout_weight="1.00" />
+        android:layout_weight="0.97" />
 
     <Button
         android:text="Back To Rules"
