@@ -55,6 +55,18 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".Multiplayer"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".Hard"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>

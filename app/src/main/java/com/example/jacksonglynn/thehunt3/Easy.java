@@ -19,7 +19,7 @@ import android.widget.Button;
 
 public class Easy extends ScavengerHunt {
     Button add, finish, back;
-    private TextView clue;
+    private TextView clue, pic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,12 +27,16 @@ public class Easy extends ScavengerHunt {
         setContentView(R.layout.easy_screen);
 
         clue = (TextView) findViewById(R.id.clue);
+        pic = (TextView) findViewById(R.id.pic);
         add = (Button) findViewById(R.id.add);
         back = (Button) findViewById(R.id.back);
         finish = (Button) findViewById(R.id.finish);
 
-        clue.setText("Enter Your first Clue: ");
+        clue.setText("Enter Your Clue: ");
         clue.setMovementMethod(new ScrollingMovementMethod());
+
+        pic.setText("Add A Picture: ");
+        pic.setMovementMethod(new ScrollingMovementMethod());
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
