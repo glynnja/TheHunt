@@ -26,13 +26,13 @@ public class FrequentlyAskedQuestions extends ActionBarActivity {
         back = (Button) findViewById(R.id.back);
         ffaRules = (TextView) findViewById(R.id.ffaRules);
 
-        ffaRules.setText("How does one create a Scavenger Hunt? \n\n"
-                +"1. \n\n"
-                +"2. \n\n"
-                +"3. \n\n"
-                +" \n\n"
-                +"1. \n\n"
-                +"2. ");
+        ffaRules.setText("1.How does one create a Scavenger Hunt? \n"
+        + " - you can create a scavenger hunt by going to local and picking easy.\n"
+        + "2. Is there pre saved scavenger hunts?\n"
+        + " - there are pre saved scavenger hunts under presaved in local.\n"
+        + "3. Can I share my scavenger Hunt with others?\n"
+        + " - this feature wont be available until release 2."
+        );
         ffaRules.setMovementMethod(new ScrollingMovementMethod());
 
         back.setOnClickListener(new View.OnClickListener() {
