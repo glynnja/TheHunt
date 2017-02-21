@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * @version (2/20/2017)
  **************************************************************************************************/
 public class Easy extends ScavengerHunt {
-    ArrayAdapter<String> m_adapter;
+   // ArrayAdapter<String> m_adapter;
     ArrayList<String> m_listItems = new ArrayList<String>();
 
     /*Creates the buttons on the main screen */
@@ -63,9 +63,14 @@ public class Easy extends ScavengerHunt {
         //creates the finish button and links it to the correct button in the class
         finish = (Button) findViewById(R.id.finish);
 
-        m_adapter = new ArrayAdapter<String>(this, R.layout.easy_screen, m_listItems);
-        list.setAdapter(m_adapter);
-        final String input = enter.getText().toString();
+       // m_adapter = new ArrayAdapter<String>(this, R.layout.easy_screen, m_listItems);
+       // list.setAdapter(m_adapter);
+        //final String input = enter.getText().toString();
+
+        final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_multiple_choice, m_listItems);
+        list.setAdapter(adpt);
+        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         //Tells the text box clue what to put into it.
         clue.setText("Enter Your Clue: ");
@@ -90,10 +95,14 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                //m_listItems.add(new String(input));
-               // m_adapter.notifyDataSetChanged();
-                Intent intent = new Intent(getApplicationContext(), Camera.class);
-                startActivity(intent);
+                m_listItems.add(enter.getText().toString());
+                adpt.setNotifyOnChange(true);
+                list.setAdapter(adpt);
+//                Intent intent = new Intent (m_listItems.add(enter.getText().toString()));
+              //  m_listItems.add(new String(input));
+              //  m_adapter.notifyDataSetChanged();
+               // Intent intent = new Intent(getApplicationContext(), Camera.class);
+               // startActivity(intent);
             }
         });
 
