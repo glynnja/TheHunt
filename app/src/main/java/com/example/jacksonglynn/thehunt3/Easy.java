@@ -90,10 +90,10 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                m_listItems.add(new String(input));
-                m_adapter.notifyDataSetChanged();
-                //Intent intent = new Intent(getApplicationContext(), Easy.class);
-               // startActivity(intent);
+                //m_listItems.add(new String(input));
+               // m_adapter.notifyDataSetChanged();
+                Intent intent = new Intent(getApplicationContext(), Camera.class);
+                startActivity(intent);
             }
         });
 
