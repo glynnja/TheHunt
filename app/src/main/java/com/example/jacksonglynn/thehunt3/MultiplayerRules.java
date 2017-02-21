@@ -20,7 +20,7 @@ public class MultiplayerRules extends ActionBarActivity {
     Button back;
 
     /*Creates the Text shown in ffaRules*/
-    private TextView ffaRules;
+    private TextView ffaRules; 
 
 
     /***********************************************************************************************
