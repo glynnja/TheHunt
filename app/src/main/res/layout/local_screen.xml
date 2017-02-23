@@ -6,29 +6,68 @@
 
     <Button
         android:text="Easy"
+        android:textColor="#910000"
+        android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Easy"
-        android:layout_weight="1.00" />
+        android:layout_weight="1.00"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+
+
+
+        />
 
     <Button
         android:text="PreSaved"
+        android:textColor="#910000"
+        android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/PreSaved"
-        android:layout_weight="1.00" />
+        android:layout_weight="1.00"
+        android:background="@drawable/buttonshape2"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+
+
+        />
 
     <Button
         android:text="Hard"
+        android:textColor="#910000"
+        android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Hard"
-        android:layout_weight="1.00" />
+        android:layout_weight="1.00"
+        android:background="@drawable/buttonshape3"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+
+        />
 
     <Button
-        android:text="Back To Home Page"
+        android:text="Home Page"
+        android:textColor="#910000"
+        android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/back"
-        android:layout_weight="1.00" />
+        android:layout_weight="1.00"
+        android:background="@drawable/buttonshape4"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+
+        />
 </LinearLayout>
