@@ -67,6 +67,12 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".FinishedEasy"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>
