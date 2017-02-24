@@ -11,7 +11,10 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.Serializable;
+import java.util.AbstractList;
 import java.util.ArrayList;
+import java.util.List;
 
 /***************************************************************************************************
  *
@@ -23,7 +26,7 @@ import java.util.ArrayList;
 public class Easy extends ScavengerHunt {
    // ArrayAdapter<String> m_adapter;
     ArrayList<String> m_listItems = new ArrayList<String>();
-
+    ArrayList<String> clone = new ArrayList<>();
     /*Creates the buttons on the main screen */
     Button add, finish, back;
 
@@ -68,10 +71,11 @@ public class Easy extends ScavengerHunt {
         //final String input = enter.getText().toString();
 
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
-                android.R.layout.simple_expandable_list_item_1, m_listItems);
-               // android.R.layout.simple_list_item_multiple_choice, m_listItems);
+               // android.R.layout.simple_expandable_list_item_1, m_listItems);
+                android.R.layout.simple_list_item_multiple_choice, m_listItems);
         list.setAdapter(adpt);
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
 
         //Tells the text box clue what to put into it.
         clue.setText("Enter Your Clue: ");
@@ -122,6 +126,8 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
+                //ArrayList<String> clone = new ArrayList<>();
+                clone.addAll(m_listItems);
                 Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
                 startActivity(intent);
             }
