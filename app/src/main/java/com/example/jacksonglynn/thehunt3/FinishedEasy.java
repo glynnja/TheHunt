@@ -20,8 +20,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class FinishedEasy extends Easy {
-
-    //ArrayList<String> m_listItems = new ArrayList<String>();
+   // ArrayList<String> clone = Easy.clone;
+    //ArrayList<String> cloned = new ArrayList<String>(clone);
     ListView hunt;
     Button back;
 
@@ -42,12 +42,25 @@ public class FinishedEasy extends Easy {
         //Easy hunt = Collections.synchronizedList(new ArrayList(m_listItems));
        //setContentView();
         //m_listItems = getIntent().getStringArrayListExtra;
+       // clone.add(enter.getText().toString());
+      //  adpt.setNotifyOnChange(true);
+        clone.add(m_listItems.toString());
+        clone.toString();
+        m_listItems.add(list.toString());
+       //  clone.addAll(m_listItems);
+
+        // m_listItems.add(enter.getText().toString());
+       // clone.addAll(m_listItems);
+
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
                 android.R.layout.simple_expandable_list_item_1, clone);
         // android.R.layout.simple_list_item_multiple_choice, m_listItems);
        // m_listItems.add(Easy.class.getName(list).toString());
         hunt.setAdapter(adpt);
         hunt.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        m_listItems.add(list.toString());
+        adpt.setNotifyOnChange(true);
+      //  hunt.setAdapter(adpt);
 
         back.setOnClickListener(new View.OnClickListener() {
 

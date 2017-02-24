@@ -103,6 +103,7 @@ public class Easy extends ScavengerHunt {
                 m_listItems.add(enter.getText().toString());
                 adpt.setNotifyOnChange(true);
                 list.setAdapter(adpt);
+                clone.addAll(m_listItems);
 //                Intent intent = new Intent (m_listItems.add(enter.getText().toString()));
               //  m_listItems.add(new String(input));
               //  m_adapter.notifyDataSetChanged();
