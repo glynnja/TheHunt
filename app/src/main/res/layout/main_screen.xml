@@ -6,7 +6,7 @@
 
     <Button
         android:text="Local"
-        android:textColor="#910000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
 
     <Button
         android:text="Multiplayer"
-        android:textColor="#910000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
 
     <Button
         android:text="Rules"
-        android:textColor="#910000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

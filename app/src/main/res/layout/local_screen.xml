@@ -6,7 +6,7 @@
 
     <Button
         android:text="Easy"
-        android:textColor="#910000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
 
     <Button
         android:text="PreSaved"
-        android:textColor="#910000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
 
     <Button
         android:text="Hard"
-        android:textColor="#910000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
 
     <Button
         android:text="Home Page"
-        android:textColor="#910000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
