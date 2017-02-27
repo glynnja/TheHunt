@@ -33,6 +33,8 @@ public class FinishedEasy extends Easy {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.easy_hunt);
 
+       // Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
+        //startActivity(intent);
 //        Bundle b = getIntent().getExtras();
 //
 //        if(b!=null) {
@@ -101,9 +103,13 @@ public class FinishedEasy extends Easy {
                 //for(int i=0; i<m_listItems.indexOf(i); i++) {
                     //clone.addAll(m_listItems);
                     //hunt.addTouchables(list.toString());
-
+                    Intent intent = getIntent();
+                   // if(null != intent){
+                        String hunt = intent.getStringExtra("list");
+                   // }
                     textView.setText(m_listItems.toString());
                     textView.setMovementMethod(new ScrollingMovementMethod());
+
 
 //                Bundle b = getIntent().getExtras();
 //
