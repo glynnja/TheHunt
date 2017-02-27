@@ -32,7 +32,7 @@ public class Easy extends ScavengerHunt {
 //        return m_listItems;
 //    }
 
-    ArrayList<String> clone = new ArrayList<>();
+  //  ArrayList<String> clone = new ArrayList<>();
     /*Creates the buttons on the main screen */
     Button add, finish, back;
 
@@ -108,7 +108,13 @@ public class Easy extends ScavengerHunt {
             @Override
             public void onClick(View v) {
                 //m_listItems.add(enter.gettoString());
-                m_listItems.add(enter.getText().toString());
+                String ag = enter.getText().toString().trim();
+                if(ag.length() != 0){
+                    m_listItems.add(ag);
+                    enter.setText("");
+                }
+                //m_listItems.add(enter.getText().toString().trim());
+                //m_listItems.add(enter.toString());
                 adpt.setNotifyOnChange(true);
                 list.setAdapter(adpt);
                 test.setText(m_listItems.toString());
@@ -137,11 +143,13 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                m_listItems.addAll(clone);
+              //  m_listItems.addAll(clone);
                 //ArrayList<String> clone = new ArrayList<>();
                 //clone.addAll(m_listItems);
                // savedInstanceState.getStringArrayList(m_listItems.toString());
+               // list.setText(getIntent().getStringExtra("m_listItems"));
                 Intent intent = new Intent(Easy.this, FinishedEasy.class);
+                intent.putExtra("list", m_listItems);
 //                for(int i =0; i < m_listItems.size();i++) {
 //                    intent.putExtra(m_listItems.set(i, m_listItems.toString()), m_listItems);
 //                }
