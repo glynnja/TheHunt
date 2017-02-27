@@ -25,7 +25,13 @@ import java.util.List;
  **************************************************************************************************/
 public class Easy extends ScavengerHunt {
    // ArrayAdapter<String> m_adapter;
+ //  ArrayList<List> m_listItems = new ArrayList<List>();
+
     ArrayList<String> m_listItems = new ArrayList<String>();
+//    public ArrayList<String> getM_listItems(){
+//        return m_listItems;
+//    }
+
     ArrayList<String> clone = new ArrayList<>();
     /*Creates the buttons on the main screen */
     Button add, finish, back;
@@ -34,7 +40,7 @@ public class Easy extends ScavengerHunt {
     ListView list;
 
     /*Creates the Text shown in the xml*/
-    private TextView clue, pic;
+    private TextView clue, pic, test;
 
 
     /***********************************************************************************************
@@ -43,7 +49,7 @@ public class Easy extends ScavengerHunt {
      *@param savedInstanceState - creates the xml layout
      **********************************************************************************************/
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.easy_screen);
 
@@ -52,6 +58,7 @@ public class Easy extends ScavengerHunt {
 
         //creates the text pic and links it to the correct text box in the xml
         pic = (TextView) findViewById(R.id.pic);
+        test = (TextView) findViewById(R.id.test);
 
         enter = (EditText) findViewById(R.id.enter);
 
@@ -100,10 +107,13 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
+                //m_listItems.add(enter.gettoString());
                 m_listItems.add(enter.getText().toString());
                 adpt.setNotifyOnChange(true);
                 list.setAdapter(adpt);
-                clone.addAll(m_listItems);
+                test.setText(m_listItems.toString());
+                test.setMovementMethod(new ScrollingMovementMethod());
+                //clone.add(enter.getText().toString());
 //                Intent intent = new Intent (m_listItems.add(enter.getText().toString()));
               //  m_listItems.add(new String(input));
               //  m_adapter.notifyDataSetChanged();
@@ -127,9 +137,15 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
+                m_listItems.addAll(clone);
                 //ArrayList<String> clone = new ArrayList<>();
-                clone.addAll(m_listItems);
-                Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
+                //clone.addAll(m_listItems);
+               // savedInstanceState.getStringArrayList(m_listItems.toString());
+                Intent intent = new Intent(Easy.this, FinishedEasy.class);
+//                for(int i =0; i < m_listItems.size();i++) {
+//                    intent.putExtra(m_listItems.set(i, m_listItems.toString()), m_listItems);
+//                }
+               // Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
                 startActivity(intent);
             }
         });
