@@ -1,5 +1,4 @@
 package com.example.jacksonglynn.thehunt3;
-//package com.deshpande.camerademo;
 
         import android.Manifest;
         import android.content.Intent;

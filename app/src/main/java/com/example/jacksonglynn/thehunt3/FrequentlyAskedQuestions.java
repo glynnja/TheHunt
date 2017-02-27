@@ -45,7 +45,20 @@ public class FrequentlyAskedQuestions extends ActionBarActivity {
         + "2. Is there pre saved scavenger hunts?\n"
         + " - there are pre saved scavenger hunts under presaved in local.\n"
         + "3. Can I share my scavenger Hunt with others?\n"
-        + " - this feature wont be available until release 2."
+        + " - Yes, and this feature wont be available until release 2!\n"
+        + "4. Can I play this scavenger hunt with multiple players?\n"
+        + " - Yes, and this feature will be available in release 2!\n"
+        + "5. Does easy also utilize the Google maps API?\n"
+        + " - No, only hard will utilize the Google maps API.\n"
+        + "6. What is a Local scavenger hunt?\n"
+        + " - A local game is the same thing as a single player game.\n"
+        + "7. How will you find what you are looking for or even know what to look for?\n"
+        + " - The creator will give you clue on what it is you have to find.\n"
+        + "8. What happens once the scavenger hunt is completed?"
+        + " - Once you have completed the scavenger hunt then you have won the game!\n"
+        + "9. Is this the best scavenger hunt out there?\n"
+        + " - Well duh of course it is!\n"
+        + "10. If you have any further questions send this to WelcomeToTheHunt2017@gmail.com\n"
         );
         ffaRules.setMovementMethod(new ScrollingMovementMethod());
 
