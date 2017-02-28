@@ -57,7 +57,7 @@ public class FrequentlyAskedQuestions extends ActionBarActivity {
         + "8. What happens once the scavenger hunt is completed?"
         + " - Once you have completed the scavenger hunt then you have won the game!\n"
         + "9. Is this the best scavenger hunt out there?\n"
-        + " - Well duh of course it is!\n"
+        + " - Well duh, of course it is!\n"
         + "10. If you have any further questions send this to WelcomeToTheHunt2017@gmail.com\n"
         );
         ffaRules.setMovementMethod(new ScrollingMovementMethod());
