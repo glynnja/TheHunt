@@ -22,13 +22,6 @@
         android:id="@+id/enter"
         tools:text="Enter here" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/pic"
-        android:layout_weight="0.08" />
-
     <Button
         android:text="Add to Scavenger Hunt"
         android:layout_width="match_parent"
@@ -48,13 +41,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/back"
         android:layout_weight="0.08" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/test"
-        android:layout_weight="0.03" />
 
     <ListView
         android:layout_width="match_parent"
