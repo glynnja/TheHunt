@@ -4,18 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ListView
+    <TextView
+        android:text="TextView"
         android:layout_width="match_parent"
-        android:layout_height="418dp"
-
-        android:id="@+id/hunt" />
-
+        android:layout_height="wrap_content"
+        android:id="@+id/sorry"
+        android:layout_weight="1" />
 
     <Button
-        android:text="Back To Easy"
+        android:text="Back To Local"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/back"
-        android:layout_weight="1" />
-
+        android:layout_weight="0.45" />
 </LinearLayout>

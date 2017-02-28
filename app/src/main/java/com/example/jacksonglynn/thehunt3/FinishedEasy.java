@@ -9,7 +9,7 @@ import android.widget.Button;
 
 /***************************************************************************************************
  *
- * The following class generates the Easy page of the Scavenger Hunt game.
+ * The following class generates the FinishedEasy page of the Scavenger Hunt game.
  *
  * @author Jackson Glynn, Mason Mahoney, Austin van Kempen
  * @version (2/20/2017)
@@ -23,7 +23,7 @@ public class FinishedEasy extends Easy {
 
 
     /***********************************************************************************************
-     *Creates the look of the easy screen and tell the texts what to put in it. It also
+     *Creates the look of the FinishedEasy screen and tell the texts what to put in it. It also
      * tells the buttons what to do when clicked.
      *@param savedInstanceState - creates the xml layout
      **********************************************************************************************/
@@ -53,7 +53,7 @@ public class FinishedEasy extends Easy {
 
 
             /***************************************************************************************
-             * tells the back button to go back to the local class
+             * tells the back button to go back to the Easy class
              *
              * @param v - the button when clicked
              **************************************************************************************/

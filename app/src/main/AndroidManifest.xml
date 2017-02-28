@@ -73,6 +73,12 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".preSaved"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>
