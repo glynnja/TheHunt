@@ -90,6 +90,7 @@ public class Easy extends ScavengerHunt {
             public void onClick(View v) {
                 String ag = enter.getText().toString().trim();
 
+                //erases the edit text after submitting an answer
                 if(ag.length() != 0){
                     m_listItems.add(ag);
                     enter.setText("");
@@ -116,8 +117,10 @@ public class Easy extends ScavengerHunt {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
-                intent.putExtra("list", m_listItems);
                 startActivity(intent);
+
+                //finish() saves the states of everything in the xml and transfers the array to
+                //finishedEasy's xml
                 finish();
             }
         });
