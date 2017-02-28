@@ -1,6 +1,7 @@
 package com.example.jacksonglynn.thehunt3;
 
 import android.app.Activity;
+import android.icu.text.DisplayContext;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.ArrayAdapter;
@@ -27,8 +28,9 @@ public class Easy extends ScavengerHunt {
    // ArrayAdapter<String> m_adapter;
  //  ArrayList<List> m_listItems = new ArrayList<List>();
 
-    ArrayList<String> m_listItems = new ArrayList<String>();
-//    public ArrayList<String> getM_listItems(){
+   public static ArrayList<String> m_listItems = new ArrayList<String>();
+  //  String m_listItems[];
+    //    public ArrayList<String> getM_listItems(){
 //        return m_listItems;
 //    }
 
@@ -41,7 +43,7 @@ public class Easy extends ScavengerHunt {
 
     /*Creates the Text shown in the xml*/
     private TextView clue, pic, test;
-
+    public String maybe;
 
     /***********************************************************************************************
      *Creates the look of the easy screen and tell the texts what to put in it. It also
@@ -61,6 +63,7 @@ public class Easy extends ScavengerHunt {
         test = (TextView) findViewById(R.id.test);
 
         enter = (EditText) findViewById(R.id.enter);
+
 
         list = (ListView) findViewById(R.id.list);
 
@@ -133,6 +136,13 @@ public class Easy extends ScavengerHunt {
          * Creates the button listener for finish. This tells the buttons what to do when it is
          * clicked.
          ******************************************************************************************/
+//        list.setOnClickListener(new View.OnClickListener(){
+//        @Override
+//            public void onClick(View v){
+//
+//        }
+//        });
+
         finish.setOnClickListener(new View.OnClickListener() {
 
 
@@ -148,13 +158,14 @@ public class Easy extends ScavengerHunt {
                 //clone.addAll(m_listItems);
                // savedInstanceState.getStringArrayList(m_listItems.toString());
                // list.setText(getIntent().getStringExtra("m_listItems"));
-                Intent intent = new Intent(Easy.this, FinishedEasy.class);
+                Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
                 intent.putExtra("list", m_listItems);
 //                for(int i =0; i < m_listItems.size();i++) {
 //                    intent.putExtra(m_listItems.set(i, m_listItems.toString()), m_listItems);
 //                }
                // Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
                 startActivity(intent);
+                finish();
             }
         });
 

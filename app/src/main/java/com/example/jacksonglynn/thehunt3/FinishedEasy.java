@@ -23,6 +23,7 @@ import java.util.List;
 public class FinishedEasy extends Easy {
     //private ArrayList m_listItems = Easy.m_listItems;
    // ArrayList<String> cloned = new ArrayList<String>();
+   // String[] array = getIntent().getExtras().getStringArray("list");
    // ArrayList<String> cloned = new ArrayList<String>();
     ListView hunt;
     private TextView textView;
@@ -105,10 +106,13 @@ public class FinishedEasy extends Easy {
                     //hunt.addTouchables(list.toString());
                     Intent intent = getIntent();
                    // if(null != intent){
-                        String hunt = intent.getStringExtra("list");
+                        String cunt = intent.getStringExtra("list");
                    // }
-                    textView.setText(m_listItems.toString());
-                    textView.setMovementMethod(new ScrollingMovementMethod());
+                   // hunt.equals(cunt);
+                   // textView.setText(m_listItems.toString());
+                textView.setText(cunt);
+
+                textView.setMovementMethod(new ScrollingMovementMethod());
 
 
 //                Bundle b = getIntent().getExtras();
