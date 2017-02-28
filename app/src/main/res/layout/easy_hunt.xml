@@ -7,15 +7,23 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="418dp"
-
+        android:layout_weight="1.21"
         android:id="@+id/hunt" />
 
 
     <Button
         android:text="Back To Easy"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/back"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        />
 
 </LinearLayout>
