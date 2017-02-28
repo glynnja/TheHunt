@@ -20,7 +20,7 @@ public class FinishedEasy extends Easy {
 
     /*Creates the button on the main screen */
     Button back;
- 
+
 
     /***********************************************************************************************
      *Creates the look of the FinishedEasy screen and tell the texts what to put in it. It also

@@ -39,6 +39,12 @@
         android:shadowRadius="5"
         />
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
+        android:id="@+id/list"
+        android:layout_weight="1.21" />
+
     <Button
         android:text="Finish Creating Hunt"
         android:textColor="#FFFFFF"
@@ -67,16 +73,4 @@
         android:shadowDy="0"
         android:shadowRadius="5"
         />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/test"
-        android:layout_weight="0.03" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="235dp"
-        android:id="@+id/list" />
 </LinearLayout>
