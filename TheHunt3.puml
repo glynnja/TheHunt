@@ -1,0 +1,12 @@
+@startuml
+Easy -> ScavengerHunt
+Local -> ScavengerHunt
+Rules:
+LocalRules:
+preSaved -> ScavengerHunt
+Multiplayer -> ScavengerHunt
+MultiplayerRules:
+FinishedEasy -> easy
+FrequentlyAskedQuestions:
+
+@enduml
