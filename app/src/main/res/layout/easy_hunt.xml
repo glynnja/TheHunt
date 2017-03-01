@@ -12,6 +12,13 @@
 
 
     <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/done"
+        android:layout_weight="1.21" />
+
+    <Button
         android:text="Back To Easy"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
