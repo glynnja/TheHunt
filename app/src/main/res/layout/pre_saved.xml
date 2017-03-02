@@ -13,8 +13,15 @@
 
     <Button
         android:text="Back To Local"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_weight="0.21"
+        android:background="@drawable/buttonshape4"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/back"
-        android:layout_weight="0.45" />
+        android:id="@+id/back" />
 </LinearLayout>
