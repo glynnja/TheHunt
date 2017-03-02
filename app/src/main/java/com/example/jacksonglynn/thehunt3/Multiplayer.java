@@ -30,7 +30,6 @@ public class Multiplayer extends ScavengerHunt implements OnMapReadyCallback {
     private TextView sorry;
 
 
-
     /***********************************************************************************************
      *Creates the look of the multiplayer screen and tell the text sorry what to put in it. It also
      * tells the back button what to do when clicked.

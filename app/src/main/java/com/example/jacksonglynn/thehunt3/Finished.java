@@ -2,14 +2,11 @@ package com.example.jacksonglynn.thehunt3;
 
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 
 /***************************************************************************************************
  *
@@ -25,6 +22,7 @@ public class Finished extends FinishedEasy {
     /*Creates the Text shown in win*/
     private TextView win;
 
+
     /***********************************************************************************************
      *Creates the look of the Finished screen and tell the texts what to put in it. It also
      * tells the buttons what to do when clicked.
@@ -35,13 +33,13 @@ public class Finished extends FinishedEasy {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.done_screen);
 
-        //creates the back button and links it to the correct button in the class
+        //creates the done button and links it to the correct button in the class
         done = (Button) findViewById(R.id.done);
 
         //creates the text and links it to the correct text box in the xml
         win = (TextView) findViewById(R.id.win);
 
-        //Tells the text box sorry what to put into it.
+        //Tells the text box Win what to put into it.
         win.setText("YOU WIN!!!");
         win.setMovementMethod(new ScrollingMovementMethod());
 
@@ -54,13 +52,18 @@ public class Finished extends FinishedEasy {
 
 
             /***************************************************************************************
-             * tells the done button to go back to display a message
+             * tells the done button to go back to the start screen
              *
              * @param v - the button when clicked
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                finish();
+                //returns the user back to the start screen
+                Intent i = getBaseContext().getPackageManager()
+                        .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                //Clears all data after going to main screen
                 System.exit(0);
             }
         });

@@ -34,14 +34,13 @@ public class FinishedEasy extends Easy {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.easy_hunt);
 
-
         //creates the listView and links it to the correct listView in the class
         hunt = (ListView) findViewById(R.id.hunt);
 
         //creates the back button and links it to the correct button in the class
         back = (Button) findViewById(R.id.back);
 
-        //creates the back button and links it to the correct button in the class
+        //creates the done button and links it to the correct button in the class
         done = (Button) findViewById(R.id.done);
 
         //creates the list view and sets up how it looks and acts
@@ -49,6 +48,7 @@ public class FinishedEasy extends Easy {
          android.R.layout.simple_list_item_multiple_choice, m_listItems);
         hunt.setAdapter(adpt);
         hunt.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
 
         /*******************************************************************************************
          * Creates the button listener for done. This tells the buttons what to do when it is
@@ -68,7 +68,6 @@ public class FinishedEasy extends Easy {
                 startActivity(intent);
             }
         });
-
 
 
         /*******************************************************************************************
