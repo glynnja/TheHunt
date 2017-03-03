@@ -17,7 +17,7 @@ import android.content.Intent;
  **************************************************************************************************/
 public class MultiplayerRules extends ActionBarActivity {
     /*Creates the back button */
-    Button back;
+    private Button back;
 
     /*Creates the Text shown in ffaRules*/
     private TextView ffaRules;

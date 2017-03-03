@@ -17,7 +17,7 @@ import android.content.Intent;
  **************************************************************************************************/
 public class LocalRules extends ActionBarActivity {
     /*Creates the back button */
-    Button back;
+    private Button back;
 
     /*Creates the Text shown in ffaRules*/
     private TextView ffaRules;

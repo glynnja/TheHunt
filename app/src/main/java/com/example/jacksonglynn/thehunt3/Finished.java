@@ -17,7 +17,7 @@ import android.widget.TextView;
  **************************************************************************************************/
 public class Finished extends FinishedEasy {
     /*Creates the button on the main screen */
-    Button done;
+    private Button done;
 
     /*Creates the Text shown in win*/
     private TextView win;

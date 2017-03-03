@@ -14,7 +14,7 @@ import android.widget.Button;
  **************************************************************************************************/
 public class Local extends ScavengerHunt {
     /*Creates the buttons on the rules screen */
-    Button preSaved, Easy, Hard, back;
+    private Button preSaved, Easy, Hard, back;
 
 
     /***********************************************************************************************

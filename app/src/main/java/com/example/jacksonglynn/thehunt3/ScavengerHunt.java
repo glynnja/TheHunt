@@ -17,7 +17,7 @@ import android.view.View.OnClickListener;
  **************************************************************************************************/
 public class ScavengerHunt extends AppCompatActivity{
     /*Creates the buttons on the main screen */
-    Button Local, Multiplayer, Rules;
+    private Button Local, Multiplayer, Rules;
 
 
     /***********************************************************************************************
@@ -99,8 +99,8 @@ public class ScavengerHunt extends AppCompatActivity{
                  **************************************************************************************/
                 @Override
                 public void onClick(View v) {
-                    Intent RulesPage = new Intent(context, Rules.class);
-                    startActivity(RulesPage);
+                    Intent intent = new Intent(context, Rules.class);
+                    startActivity(intent);
                 }
             });
 

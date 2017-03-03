@@ -6,15 +6,9 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+
 /***************************************************************************************************
  *
  * The following class generates the multiplayer page of the Scavenger Hunt game.
@@ -24,7 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
  **************************************************************************************************/
 public class Multiplayer extends ScavengerHunt implements OnMapReadyCallback {
     /*Creates the back button */
-    Button back;
+    private Button back;
 
     /*Creates the Text shown in sorry*/
     private TextView sorry;

@@ -16,7 +16,7 @@ import android.widget.TextView;
  **************************************************************************************************/
 public class Hard extends ScavengerHunt{
     /*Creates the back button */
-    Button back;
+    private Button back;
 
     /*Creates the Text shown in sorry*/
     private TextView sorry;

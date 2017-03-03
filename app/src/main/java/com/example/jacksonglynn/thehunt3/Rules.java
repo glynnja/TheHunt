@@ -15,7 +15,7 @@ import android.widget.Button;
  **************************************************************************************************/
 public class Rules extends ActionBarActivity {
     /*Creates the buttons on the rules screen */
-    Button Local, Multiplayer, faq, back;
+    private Button Local, Multiplayer, faq, back;
 
 
     /***********************************************************************************************

@@ -1,5 +1,6 @@
 package com.example.jacksonglynn.thehunt3;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.ArrayAdapter;
@@ -23,16 +24,16 @@ public class Easy extends ScavengerHunt {
    public static ArrayList<String> m_listItems = new ArrayList<String>();
 
     /*Creates the buttons on the main screen */
-    Button add, finish, back;
+    private Button add, finish, back;
 
     /*Creates the EditText shown in the xml*/
-    EditText enter;
+    private EditText enter;
 
     /*Creates the ListView shown in the xml*/
-    ListView list;
+    private ListView list;
 
     /*Creates the Text shown in the xml*/
-    private TextView clue;
+     private TextView clue;
 
 
     /***********************************************************************************************
@@ -40,6 +41,7 @@ public class Easy extends ScavengerHunt {
      * tells the buttons what to do when clicked.
      *@param savedInstanceState - creates the xml layout
      **********************************************************************************************/
+    @SuppressLint("SetTextI18n")
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,13 +91,11 @@ public class Easy extends ScavengerHunt {
             @Override
             public void onClick(View v) {
                 String ag = enter.getText().toString().trim();
-
                 //erases the edit text after submitting an answer
                 if(ag.length() != 0){
                     m_listItems.add(ag);
                     enter.setText("");
                 }
-
                 adpt.setNotifyOnChange(true);
                 list.setAdapter(adpt);
             }

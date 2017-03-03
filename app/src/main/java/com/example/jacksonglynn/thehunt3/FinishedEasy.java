@@ -2,8 +2,6 @@ package com.example.jacksonglynn.thehunt3;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.content.Intent;
 import android.view.View;
@@ -18,10 +16,10 @@ import android.widget.Button;
  **************************************************************************************************/
 public class FinishedEasy extends Easy {
     /*Creates the ListView shown in the xml*/
-    ListView hunt;
+    private ListView hunt;
 
     /*Creates the button on the main screen */
-    Button back, done;
+    private Button back, done;
 
 
     /***********************************************************************************************
