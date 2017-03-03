@@ -64,7 +64,7 @@ public class Finished extends FinishedEasy {
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 //Clears all data after going to main screen
-                System.exit(0);
+                m_listItems.clear();
             }
         });
     }
