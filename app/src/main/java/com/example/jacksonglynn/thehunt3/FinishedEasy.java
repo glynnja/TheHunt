@@ -60,7 +60,7 @@ public class FinishedEasy extends Easy {
             /***************************************************************************************
              * tells the done button to go back to display a message
              *
-             * @param v - the button when clicked
+             * @param v - the button when clicked 
              **************************************************************************************/
             @Override
             public void onClick(View v) {
