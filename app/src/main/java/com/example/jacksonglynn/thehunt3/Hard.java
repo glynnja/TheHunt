@@ -11,7 +11,7 @@ import android.widget.TextView;
  *
  * The following class generates the hard page of the Scavenger Hunt game.
  *
- * @author Jackson Glynn, Mason Mahoney, Austin van Kempen
+ * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
 public class Hard extends ScavengerHunt{

@@ -12,7 +12,7 @@ import android.widget.TextView;
  *
  * The following class generates the Finished page of the Scavenger Hunt game.
  *
- * @author Jackson Glynn, Mason Mahoney, Austin van Kempen
+ * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
 public class Finished extends FinishedEasy {
@@ -64,7 +64,7 @@ public class Finished extends FinishedEasy {
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 //Clears all data after going to main screen
-                m_listItems.clear();
+                mlistItems.clear();
             }
         });
     }

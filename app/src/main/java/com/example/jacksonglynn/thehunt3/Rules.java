@@ -10,12 +10,12 @@ import android.widget.Button;
  *
  * The following class generates the rules page of the Scavenger Hunt game.
  *
- * @author Jackson Glynn, Mason Mahoney, Austin van Kempen
+ * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
 public class Rules extends ActionBarActivity {
     /*Creates the buttons on the rules screen */
-    private Button Local, Multiplayer, faq, back;
+    private Button local, multiplayer, faq, back;
 
 
     /***********************************************************************************************
@@ -28,10 +28,10 @@ public class Rules extends ActionBarActivity {
         setContentView(R.layout.rules_screen); //tells the class what xml goes with it.
 
         //creates the local button and links them to the correct button in the class
-        Local = (Button) findViewById(R.id.Local);
+        local = (Button) findViewById(R.id.Local);
 
         //creates the multiplayer button and links them to the correct button in the class
-        Multiplayer = (Button) findViewById(R.id.Multiplayer);
+        multiplayer = (Button) findViewById(R.id.Multiplayer);
 
         //creates the faq button and links them to the correct button in the class
         faq = (Button) findViewById(R.id.faq);
@@ -44,7 +44,7 @@ public class Rules extends ActionBarActivity {
      * Creates the button listener for local. This tells the buttons what to do when it is
      * clicked.
      ******************************************************************************************/
-        Local.setOnClickListener(new View.OnClickListener() {
+        local.setOnClickListener(new View.OnClickListener() {
 
 
             /***************************************************************************************
@@ -63,7 +63,7 @@ public class Rules extends ActionBarActivity {
          * Creates the button listener for multiplayer. This tells the buttons what to do when it is
          * clicked.
         ******************************************************************************************/
-        Multiplayer.setOnClickListener(new View.OnClickListener() {
+        multiplayer.setOnClickListener(new View.OnClickListener() {
 
 
             /***************************************************************************************

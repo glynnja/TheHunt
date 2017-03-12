@@ -4,45 +4,64 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
+import java.util.ArrayList;
+
 
 /***************************************************************************************************
  *
- * The following class generates the multiplayer page of the Scavenger Hunt game.
+ * The following class generates the preSaved page of the Scavenger Hunt game.
  *
  * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
-public class Multiplayer extends ScavengerHunt implements OnMapReadyCallback {
+public class preAllendale extends ScavengerHunt{
+    /*Creates the Array shown in the xml */
+    private String allendaleList[] = {"Find the Park.", "Check out the High School.",
+            "Find the local Library.", "Find the post office.",
+            "Find Hungry Howies."};
+
     /*Creates the back button */
     private Button back;
 
     /*Creates the Text shown in sorry*/
-    private TextView sorry;
+    private TextView rules;
+
+    /*Creates the ListView shown in the xml*/
+    private ListView allendale;
 
 
     /***********************************************************************************************
-     *Creates the look of the multiplayer screen and tell the text sorry what to put in it. It also
-     * tells the back button what to do when clicked.
+     *Creates the look of the rules screen and adds an action listener for the buttons.
      *@param savedInstanceState - creates the xml layout
      **********************************************************************************************/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.multiplayer_screen);
+        setContentView(R.layout.pre_allendale); //tells the class what xml goes with it.
+
+        //creates the text rules and links it to the correct text box in the xml
+        rules = (TextView) findViewById(R.id.rules);
+
+        //creates the listView and links it to the correct listView in the class
+        allendale = (ListView) findViewById(R.id.allendale);
 
         //creates the back button and links it to the correct button in the class
         back = (Button) findViewById(R.id.back);
 
-        //creates the text and links it to the correct text box in the xml
-        sorry = (TextView) findViewById(R.id.sorry);
 
-        //Tells the text box sorry what to put into it.
-        sorry.setText("Sorry this feature will be coming in Release 2!");
-        sorry.setMovementMethod(new ScrollingMovementMethod());
+        //creates the list view and sets up how it looks and acts
+        final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_multiple_choice, allendaleList);
+        allendale.setAdapter(adpt);
+        allendale.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+        //Tells the text box clue what to put into it.
+        rules.setText("Check the box when you are in Range of the Clue!");
+        rules.setMovementMethod(new ScrollingMovementMethod());
 
 
         /*******************************************************************************************
@@ -53,22 +72,16 @@ public class Multiplayer extends ScavengerHunt implements OnMapReadyCallback {
 
 
             /***************************************************************************************
-             * tells the back button to go back to the ScavengerHunt class
+             * tells the back button to go back to the preSaved class
+             *
              * @param v - the button when clicked
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ScavengerHunt.class);
+                Intent intent = new Intent(getApplicationContext(), preSaved.class);
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
 
     }
 }
-
-
-

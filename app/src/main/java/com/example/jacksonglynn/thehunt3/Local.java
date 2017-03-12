@@ -9,12 +9,12 @@ import android.widget.Button;
  *
  * The following class generates the local page of the Scavenger Hunt game.
  *
- * @author Jackson Glynn, Mason Mahoney, Austin van Kempen
+ * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
 public class Local extends ScavengerHunt {
     /*Creates the buttons on the rules screen */
-    private Button preSaved, Easy, Hard, back;
+    private Button preSaved, easy, hard, back;
 
 
     /***********************************************************************************************
@@ -31,10 +31,10 @@ public class Local extends ScavengerHunt {
         preSaved = (Button) findViewById(R.id.PreSaved);
 
         //creates the Easy button and links them to the correct button in the class
-        Easy = (Button) findViewById(R.id.Easy);
+        easy = (Button) findViewById(R.id.Easy);
 
         //creates the Hard button and links them to the correct button in the class
-        Hard = (Button) findViewById(R.id.Hard);
+        hard = (Button) findViewById(R.id.Hard);
 
         //creates the back button and links them to the correct button in the class
         back = (Button) findViewById(R.id.back);
@@ -63,7 +63,7 @@ public class Local extends ScavengerHunt {
          * Creates the button listener for Easy. This tells the buttons what to do when it is
          * clicked.
          ******************************************************************************************/
-        Easy.setOnClickListener(new View.OnClickListener() {
+        easy.setOnClickListener(new View.OnClickListener() {
 
 
             /***************************************************************************************
@@ -82,7 +82,7 @@ public class Local extends ScavengerHunt {
          * Creates the button listener for Hard. This tells the buttons what to do when it is
          * clicked.
          ******************************************************************************************/
-        Hard.setOnClickListener(new View.OnClickListener() {
+        hard.setOnClickListener(new View.OnClickListener() {
 
 
             /***************************************************************************************

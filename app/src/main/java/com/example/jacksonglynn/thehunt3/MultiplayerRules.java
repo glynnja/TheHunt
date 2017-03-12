@@ -12,7 +12,7 @@ import android.content.Intent;
  *
  * The following class generates the multiplayerRules page of the Scavenger Hunt game.
  *
- * @author Jackson Glynn, Mason Mahoney, Austin van Kempen
+ * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
 public class MultiplayerRules extends ActionBarActivity {

@@ -13,7 +13,7 @@ import android.widget.Button;
  *
  * The following class generates the FinishedEasy page of the Scavenger Hunt game.
  *
- * @author Jackson Glynn, Mason Mahoney, Austin van Kempen
+ * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
 public class FinishedEasy extends Easy {
@@ -45,7 +45,7 @@ public class FinishedEasy extends Easy {
 
         //creates the list view and sets up how it looks and acts
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
-         android.R.layout.simple_list_item_multiple_choice, m_listItems);
+         android.R.layout.simple_list_item_multiple_choice, mlistItems);
         hunt.setAdapter(adpt);
         hunt.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
@@ -60,7 +60,7 @@ public class FinishedEasy extends Easy {
             /***************************************************************************************
              * tells the done button to go back to display a message
              *
-             * @param v - the button when clicked 
+             * @param v - the button when clicked
              **************************************************************************************/
             @Override
             public void onClick(View v) {

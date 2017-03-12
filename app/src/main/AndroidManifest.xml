@@ -85,6 +85,24 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".preAllendale"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".preGVSU"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".preDownGR"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
 
     </application>
 

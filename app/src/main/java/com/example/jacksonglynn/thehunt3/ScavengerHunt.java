@@ -12,12 +12,12 @@ import android.view.View.OnClickListener;
  *
  * The following class generates a ScavengerHunt game
  *
- * @author Jackson Glynn, Mason Mahoney, Austin van Kempen
+ * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
 public class ScavengerHunt extends AppCompatActivity{
     /*Creates the buttons on the main screen */
-    private Button Local, Multiplayer, Rules;
+    private Button local, multiplayer, rules;
 
 
     /***********************************************************************************************
@@ -39,20 +39,20 @@ public class ScavengerHunt extends AppCompatActivity{
         final Context context = this;
 
             //creates the local button and links them to the correct button in the class
-            Local = (Button) findViewById(R.id.Local);
+            local = (Button) findViewById(R.id.Local);
 
             //creates the multiplayer button and links them to the correct button in the class
-            Multiplayer = (Button) findViewById(R.id.Multiplayer);
+            multiplayer = (Button) findViewById(R.id.Multiplayer);
 
             //creates the rules button and links them to the correct button in the class
-            Rules = (Button) findViewById(R.id.Rules);
+            rules = (Button) findViewById(R.id.Rules);
 
 
             /***************************************************************************************
              * Creates the button listener for local. This tells the buttons what to do when it is
              * clicked.
              **************************************************************************************/
-            Local.setOnClickListener(new OnClickListener() {
+            local.setOnClickListener(new OnClickListener() {
 
 
                 /***********************************************************************************
@@ -71,7 +71,7 @@ public class ScavengerHunt extends AppCompatActivity{
              * Creates the button listener for multiplayer. This tells the buttons what to do
              * when it is clicked.
              * ************************************************************************************/
-            Multiplayer.setOnClickListener(new View.OnClickListener() {
+            multiplayer.setOnClickListener(new View.OnClickListener() {
 
 
                 /***********************************************************************************
@@ -90,7 +90,7 @@ public class ScavengerHunt extends AppCompatActivity{
               * Creates the button listener for Rueles. This tells the buttons what to do when it is
               * clicked.
               *************************************************************************************/
-            Rules.setOnClickListener(new View.OnClickListener() {
+            rules.setOnClickListener(new View.OnClickListener() {
 
 
                 /***************************************************************************************

@@ -19,12 +19,12 @@ import java.util.ArrayList;
  *
  * The following class generates the Easy page of the Scavenger Hunt game.
  *
- * @author Jackson Glynn, Mason Mahoney, Austin van Kempen
+ * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
 public class Easy extends ScavengerHunt {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
-   public static ArrayList<String> m_listItems = new ArrayList<String>();
+   public static ArrayList<String> mlistItems = new ArrayList<String>();
 
     /*Creates the buttons on the main screen */
     private Button add, finish, back;
@@ -70,7 +70,7 @@ public class Easy extends ScavengerHunt {
 
         //creates the list view and sets up how it looks and acts
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_multiple_choice, m_listItems);
+                android.R.layout.simple_list_item_multiple_choice, mlistItems);
         list.setAdapter(adpt);
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
@@ -131,6 +131,14 @@ public class Easy extends ScavengerHunt {
 //                }
 //            });
 
+//        list.setOnLongClickListener(new View.OnLongClickListener()
+//                                   {
+//                                       @Override
+//                                       public boolean onLongClick(View view) {
+//                                           remove(listView.indexOfChild(view));
+//                                           return true;
+//                                       }
+//                                   });
 
         /*******************************************************************************************
          * Creates the button listener for add. This tells the buttons what to do when it is
@@ -149,7 +157,7 @@ public class Easy extends ScavengerHunt {
                 String ag = enter.getText().toString().trim();
                 //erases the edit text after submitting an answer
                 if(ag.length() != 0){
-                    m_listItems.add(ag);
+                    mlistItems.add(ag);
                     enter.setText("");
                 }
                 adpt.setNotifyOnChange(true);
