@@ -16,7 +16,7 @@ import android.widget.TextView;
  **************************************************************************************************/
 public class Hard extends ScavengerHunt{
     /*Creates the back button */
-    private Button back;
+    private Button add, finish, back;
 
     /*Creates the Text shown in sorry*/
     private TextView sorry;
@@ -35,12 +35,68 @@ public class Hard extends ScavengerHunt{
         //creates the back button and links it to the correct button in the class
         back = (Button) findViewById(R.id.back);
 
+        //creates the add button and links it to the correct button in the class
+        add = (Button) findViewById(R.id.add);
+
+        //creates the finish button and links it to the correct button in the class
+        finish = (Button) findViewById(R.id.finish);
+
         //creates the text and links it to the correct text box in the xml
         sorry = (TextView) findViewById(R.id.sorry);
 
         //Tells the text box sorry what to put into it.
-        sorry.setText("Sorry this feature will be coming in Release 2!");
+        sorry.setText("Enter your Picture Clue!");
         sorry.setMovementMethod(new ScrollingMovementMethod());
+
+
+        /*******************************************************************************************
+         * Creates the button listener for finish. This tells the buttons what to do when it is
+         * clicked.
+         ******************************************************************************************/
+        finish.setOnClickListener(new View.OnClickListener() {
+
+
+            /***************************************************************************************
+             * tells the back button to go back to the finishedEasy class
+             *
+             * @param v - the button when clicked
+             **************************************************************************************/
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FinishedHard.class);
+                startActivity(intent);
+
+                //finish() saves the states of everything in the xml and transfers the array to
+                //finishedEasy's xml
+                finish();
+            }
+        });
+
+
+        /*******************************************************************************************
+        * Creates the button listener for add. This tells the buttons what to do when it is
+        * clicked.
+        ******************************************************************************************/
+        add.setOnClickListener(new View.OnClickListener() {
+
+
+            /***************************************************************************************
+             * tells the back button to go back to the easy class
+             *
+             * @param v - the button when clicked
+             **************************************************************************************/
+            @Override
+            public void onClick(View v) {
+//                String ag = enter.getText().toString().trim();
+//                //erases the edit text after submitting an answer
+//                if(ag.length() != 0){
+//                    mlistItems.add(ag);
+//                    enter.setText("");
+//                }
+//                adpt.setNotifyOnChange(true);
+//                list.setAdapter(adpt);
+            }
+        });
 
 
         /*******************************************************************************************
