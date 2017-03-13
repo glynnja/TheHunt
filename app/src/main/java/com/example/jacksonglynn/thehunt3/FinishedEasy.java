@@ -18,10 +18,10 @@ import android.widget.Button;
  **************************************************************************************************/
 public class FinishedEasy extends Easy {
     /*Creates the ListView shown in the xml*/
-    ListView hunt;
+    private ListView hunt;
 
     /*Creates the button on the main screen */
-    Button back, done;
+    private Button back, done;
 
 
     /***********************************************************************************************

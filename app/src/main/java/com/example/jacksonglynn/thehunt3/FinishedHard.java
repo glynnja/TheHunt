@@ -20,7 +20,7 @@ import android.widget.TextView;
  **************************************************************************************************/
 public class FinishedHard extends Hard {
     /*Creates the button on the main screen */
-    Button back, done;
+    private Button back, done;
 
     /*Creates the Text shown in sorry*/
     private TextView pic;

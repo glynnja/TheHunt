@@ -24,7 +24,7 @@ import java.util.ArrayList;
  **************************************************************************************************/
 public class Easy extends ScavengerHunt {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
-   public static ArrayList<String> mlistItems = new ArrayList<String>();
+   public final static ArrayList<String> mlistItems = new ArrayList<String>();
 
     /*Creates the buttons on the main screen */
     private Button add, finish, back;
@@ -109,8 +109,8 @@ public class Easy extends ScavengerHunt {
 //            }
 //        });
 
-//        list.setOnClickListener(new View.OnClickListener() {
-//
+      //  list.setOnClickListener(new View.OnClickListener() {
+//        list.setItemChecked(new View.OnClickListener() {
 //
 //            /***************************************************************************************
 //             * tells the back button to go back to the easy class
@@ -125,7 +125,7 @@ public class Easy extends ScavengerHunt {
 //                mes.setNegativeButton("Cancel", null);
 //                mes.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
 //                    public void onClick(DialogInterface dialog, int which) {
-//                        m_listItems.remove(v);
+//                        mlistItems.remove(v);
 //                        adpt.notifyDataSetChanged();
 //                    }});
 //                }
