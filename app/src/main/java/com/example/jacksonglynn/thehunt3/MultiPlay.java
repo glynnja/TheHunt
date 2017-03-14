@@ -80,8 +80,8 @@ public class MultiPlay extends Multiplayer {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Hard.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), Hard.class);
+//                startActivity(intent);
             }
         });
 

@@ -226,7 +226,7 @@ public class mEasy extends Multiplayer {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
+                Intent intent = new Intent(getApplicationContext(), mCreated.class);
                 startActivity(intent);
 
                 //finish() saves the states of everything in the xml and transfers the array to
