@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rules"
+        android:layout_weight="0.99" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="302dp"
+        android:id="@+id/plist" />
+
+    <Button
+        android:text="Play Hunt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/play"
+        android:layout_weight="1" />
+
+    <Button
+        android:text="Back To Multiplayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/back"
+        android:layout_weight="1.00" />
+</LinearLayout>

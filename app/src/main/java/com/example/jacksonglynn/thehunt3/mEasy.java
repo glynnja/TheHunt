@@ -23,9 +23,9 @@ import java.util.ArrayList;
  * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
-public class Easy extends ScavengerHunt {
+public class mEasy extends Multiplayer {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
-   public final static ArrayList<String> mlistItems = new ArrayList<String>();
+    public final static ArrayList<String> multE = new ArrayList<String>();
 
     /*Creates the buttons on the main screen */
     private Button add, finish, back, delete;
@@ -34,13 +34,13 @@ public class Easy extends ScavengerHunt {
     private EditText enter;
 
     /*Creates the ListView shown in the xml*/
-    private ListView list;
+    private ListView mHunt;
 
 //    /*Creates the ListView shown in the xml*/
 //    private RecyclerView list2;
 
     /*Creates the Text shown in the xml*/
-     private TextView clue;
+    private TextView clue;
 
 
     /***********************************************************************************************
@@ -52,7 +52,7 @@ public class Easy extends ScavengerHunt {
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.easy_screen);
+        setContentView(R.layout.m_easy);
 
         //creates the text clue and links it to the correct text box in the xml
         clue = (TextView) findViewById(R.id.clue);
@@ -61,7 +61,7 @@ public class Easy extends ScavengerHunt {
         enter = (EditText) findViewById(R.id.enter);
 
         //creates the listView and links it to the correct listView in the class
-        list = (ListView) findViewById(R.id.list);
+        mHunt = (ListView) findViewById(R.id.mHunt);
 
 //        //creates the listView and links it to the correct listView in the class
 //        list2 = (RecyclerView) findViewById(R.id.list2);
@@ -80,9 +80,9 @@ public class Easy extends ScavengerHunt {
 
         //creates the list view and sets up how it looks and acts
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_multiple_choice, mlistItems);
-        list.setAdapter(adpt);
-        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+                android.R.layout.simple_list_item_multiple_choice, multE);
+        mHunt.setAdapter(adpt);
+        mHunt.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         //list2.setAdapter(adpt);
 
 //        final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
@@ -95,8 +95,8 @@ public class Easy extends ScavengerHunt {
         clue.setMovementMethod(new ScrollingMovementMethod());
         /*******************************************************************************************
          * Creates the button listener for add. This tells the buttons what to do when it is
-        * clicked.
-        ******************************************************************************************/
+         * clicked.
+         ******************************************************************************************/
 //        list.setOnItemSelectedListener(new View.OnContextClickListener() {
 //            @Override
 //            public void onClick(View v){
@@ -125,9 +125,9 @@ public class Easy extends ScavengerHunt {
 //            }
 //        });
 
-      //  list.setOnClickListener(new View.OnClickListener() {
-       // list.setItemChecked(new View.OnClickListener() {
-         //   list.setItemChecked(this, View.OnClickListener());{
+        //  list.setOnClickListener(new View.OnClickListener() {
+        // list.setItemChecked(new View.OnClickListener() {
+        //   list.setItemChecked(this, View.OnClickListener());{
 //            /***************************************************************************************
 //             * tells the back button to go back to the easy class
 //             *
@@ -158,9 +158,9 @@ public class Easy extends ScavengerHunt {
 
 
         /*******************************************************************************************
-        * Creates the button listener for delete. This tells the buttons what to do when it is
-        * clicked.
-        ******************************************************************************************/
+         * Creates the button listener for delete. This tells the buttons what to do when it is
+         * clicked.
+         ******************************************************************************************/
         delete.setOnClickListener(new View.OnClickListener() {
 
 
@@ -171,12 +171,12 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                SparseBooleanArray checkedItemPositions = list.getCheckedItemPositions();
-                int itemCount = list.getCount();
+                SparseBooleanArray checkedItemPositions = mHunt.getCheckedItemPositions();
+                int itemCount = mHunt.getCount();
 
                 for(int i=itemCount-1; i >= 0; i--){
                     if(checkedItemPositions.get(i)){
-                        adpt.remove(mlistItems.get(i));
+                        adpt.remove(multE.get(i));
                     }
                 }
 
@@ -203,11 +203,11 @@ public class Easy extends ScavengerHunt {
                 String ag = enter.getText().toString().trim();
                 //erases the edit text after submitting an answer
                 if(ag.length() != 0){
-                    mlistItems.add(ag);
+                    multE.add(ag);
                     enter.setText("");
                 }
                 adpt.setNotifyOnChange(true);
-                list.setAdapter(adpt);
+                mHunt.setAdapter(adpt);
             }
         });
 
@@ -250,11 +250,11 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Local.class);
+                Intent intent = new Intent(getApplicationContext(), MultiCreate.class);
                 startActivity(intent);
             }
         });
 
-  }
+    }
 }
 

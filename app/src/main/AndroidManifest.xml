@@ -109,6 +109,30 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".MultiPlay"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".MultiCreate"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".mEasy"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".mHard"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
 
     </application>
 

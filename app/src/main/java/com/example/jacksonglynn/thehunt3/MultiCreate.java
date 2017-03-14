@@ -1,57 +1,86 @@
 package com.example.jacksonglynn.thehunt3;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.content.Intent;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
+
+import java.util.ArrayList;
 
 /***************************************************************************************************
  *
- * The following class generates the multiplayer page of the Scavenger Hunt game.
+ * The following class generates the local page of the Scavenger Hunt game.
  *
  * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
-public class Multiplayer extends ScavengerHunt implements OnMapReadyCallback {
-    /*Creates the back button */
-    private Button back, create, play;
-
-    /*Creates the Text shown in sorry*/
-    private TextView sorry;
+public class MultiCreate extends Multiplayer {
+    /*Creates the buttons on the rules screen */
+    private Button mEasy, mHard, back;
 
 
     /***********************************************************************************************
-     *Creates the look of the multiplayer screen and tell the text sorry what to put in it. It also
-     * tells the back button what to do when clicked.
-     *@param savedInstanceState - creates the xml layout
+     * Creates the look of the local screen and tells it what to put in it. It also
+     * tells the buttons what to do when clicked.
+     *
+     * @param savedInstanceState - creates the xml layout
      **********************************************************************************************/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.multiplayer_screen);
+        setContentView(R.layout.multi_create);
 
-        //creates the back button and links it to the correct button in the class
+        //creates the Easy button and links them to the correct button in the class
+        mEasy = (Button) findViewById(R.id.easy);
+
+        //creates the Easy button and links them to the correct button in the class
+        mHard = (Button) findViewById(R.id.hard);
+
+        //creates the back button and links them to the correct button in the class
         back = (Button) findViewById(R.id.back);
 
-        //creates the back button and links it to the correct button in the class
-        play = (Button) findViewById(R.id.play);
 
-        //creates the back button and links it to the correct button in the class
-        create = (Button) findViewById(R.id.create);
 
-        //creates the text and links it to the correct text box in the xml
-        sorry = (TextView) findViewById(R.id.sorry);
+        /*******************************************************************************************
+         * Creates the button listener for play. This tells the buttons what to do when it is
+         * clicked.
+         ******************************************************************************************/
+        mEasy.setOnClickListener(new View.OnClickListener() {
 
-        //Tells the text box sorry what to put into it.
-        sorry.setText("Welcome To Multiplayer! \n" +
-                "Would you like to Create a Hunt for the World? \n" +
-                "Or \n" +
-                "Would you like to Play A Game?");
-        sorry.setMovementMethod(new ScrollingMovementMethod());
+
+            /***************************************************************************************
+             * tells the Easy button to go mEasy class
+             * @param v - the button when clicked
+             **************************************************************************************/
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), mEasy.class);
+                startActivity(intent);
+            }
+        });
+
+
+        /*******************************************************************************************
+         * Creates the button listener for play. This tells the buttons what to do when it is
+         * clicked.
+         ******************************************************************************************/
+        mHard.setOnClickListener(new View.OnClickListener() {
+
+
+            /***************************************************************************************
+             * tells the Hard button to go to the mHard class
+             * @param v - the button when clicked
+             **************************************************************************************/
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), mHard.class);
+                startActivity(intent);
+            }
+        });
 
 
         /*******************************************************************************************
@@ -62,58 +91,17 @@ public class Multiplayer extends ScavengerHunt implements OnMapReadyCallback {
 
 
             /***************************************************************************************
-             * tells the back button to go back to the ScavengerHunt class
+             * tells the back button to go back to the Multiplayer class
              * @param v - the button when clicked
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ScavengerHunt.class);
+                Intent intent = new Intent(getApplicationContext(), Multiplayer.class);
                 startActivity(intent);
             }
         });
 
-        /*******************************************************************************************
-         * Creates the button listener for create. This tells the buttons what to do when it is
-         * clicked.
-         ******************************************************************************************/
-        create.setOnClickListener(new View.OnClickListener() {
-
-
-            /***************************************************************************************
-             * tells the create button to go to MultiCreate
-             * @param v - the button when clicked
-             **************************************************************************************/
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MultiCreate.class);
-                startActivity(intent);
-            }
-        });
-
-        /*******************************************************************************************
-         * Creates the button listener for play. This tells the buttons what to do when it is
-         * clicked.
-         ******************************************************************************************/
-        play.setOnClickListener(new View.OnClickListener() {
-
-
-            /***************************************************************************************
-             * tells the play button to go MultiPlay
-             * @param v - the button when clicked
-             **************************************************************************************/
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MultiPlay.class);
-                startActivity(intent);
-            }
-        });
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
 
-    }
 }
-
-
-
