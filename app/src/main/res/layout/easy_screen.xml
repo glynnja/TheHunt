@@ -46,6 +46,13 @@
         android:layout_weight="1.21" />
 
     <Button
+        android:text="Delete Checked Items From Hunt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/delete"
+        android:layout_weight="0.03" />
+
+    <Button
         android:text="Finish Creating Hunt"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
