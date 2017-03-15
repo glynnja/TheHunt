@@ -31,7 +31,7 @@ public class Easy extends ScavengerHunt {
     private Button add, finish, back, delete;
 
     /*Creates the EditText shown in the xml*/
-    private EditText enter;
+    private EditText enter, name;
 
     /*Creates the ListView shown in the xml*/
     private ListView list;
@@ -40,7 +40,7 @@ public class Easy extends ScavengerHunt {
 //    private RecyclerView list2;
 
     /*Creates the Text shown in the xml*/
-     private TextView clue;
+     private TextView clue, hname;
 
 
     /***********************************************************************************************
@@ -57,8 +57,14 @@ public class Easy extends ScavengerHunt {
         //creates the text clue and links it to the correct text box in the xml
         clue = (TextView) findViewById(R.id.clue);
 
+        //creates the text clue and links it to the correct text box in the xml
+        hname = (TextView) findViewById(R.id.hname);
+
         //creates the editText and links it to the correct editText in the class
         enter = (EditText) findViewById(R.id.enter);
+
+        //creates the editText and links it to the correct editText in the class
+        name = (EditText) findViewById(R.id.name);
 
         //creates the listView and links it to the correct listView in the class
         list = (ListView) findViewById(R.id.list);
@@ -93,6 +99,10 @@ public class Easy extends ScavengerHunt {
         //Tells the text box clue what to put into it.
         clue.setText("Enter Your Clue: ");
         clue.setMovementMethod(new ScrollingMovementMethod());
+
+        //Tells the text box clue what to put into it.
+        hname.setText("Name Your Scavenger Hunt: ");
+        hname.setMovementMethod(new ScrollingMovementMethod());
         /*******************************************************************************************
          * Creates the button listener for add. This tells the buttons what to do when it is
         * clicked.
