@@ -1,6 +1,7 @@
 package com.example.jacksonglynn.thehunt3;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListAdapter;
@@ -8,6 +9,7 @@ import android.widget.ListView;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 /***************************************************************************************************
  *
@@ -18,7 +20,10 @@ import android.widget.Button;
  **************************************************************************************************/
 public class FinishedEasy extends Easy {
     /*Creates the ListView shown in the xml*/
-    private ListView hunt;
+    private ListView hunt, huntName;
+
+//    /*Creates the Text shown in the xml*/
+//    private TextView huntName;
 
     /*Creates the button on the main screen */
     private Button back, done;
@@ -37,11 +42,17 @@ public class FinishedEasy extends Easy {
         //creates the listView and links it to the correct listView in the class
         hunt = (ListView) findViewById(R.id.hunt);
 
+        //creates the listView and links it to the correct listView in the class
+        huntName = (ListView) findViewById(R.id.huntName);
+
         //creates the back button and links it to the correct button in the class
         back = (Button) findViewById(R.id.back);
 
         //creates the done button and links it to the correct button in the class
         done = (Button) findViewById(R.id.done);
+
+//        //creates the text clue and links it to the correct text box in the xml
+//        huntName = (TextView) findViewById(R.id.huntName);
 
         //creates the list view and sets up how it looks and acts
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
@@ -49,6 +60,14 @@ public class FinishedEasy extends Easy {
         hunt.setAdapter(adpt);
         hunt.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
+        //creates the list view and sets up how it looks and acts
+        final ArrayAdapter<String> adpt2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_expandable_list_item_1, namelist);
+        huntName.setAdapter(adpt2);
+        huntName.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+//        huntName.setText(namelist.toString().trim());
+//        huntName.setMovementMethod(new ScrollingMovementMethod());
 
         /*******************************************************************************************
          * Creates the button listener for done. This tells the buttons what to do when it is
@@ -84,6 +103,7 @@ public class FinishedEasy extends Easy {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
+                namelist.clear();
                 Intent intent = new Intent(getApplicationContext(), Easy.class);
                 startActivity(intent);
             }

@@ -27,6 +27,9 @@ public class Easy extends ScavengerHunt {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
    public final static ArrayList<String> mlistItems = new ArrayList<String>();
 
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<String> namelist = new ArrayList<String>();
+
     /*Creates the buttons on the main screen */
     private Button add, finish, back, delete;
 
@@ -222,6 +225,7 @@ public class Easy extends ScavengerHunt {
         });
 
 
+
         /*******************************************************************************************
          * Creates the button listener for finish. This tells the buttons what to do when it is
          * clicked.
@@ -236,12 +240,68 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
-                startActivity(intent);
+                String hn = name.getText().toString().trim();
 
-                //finish() saves the states of everything in the xml and transfers the array to
-                //finishedEasy's xml
-                finish();
+                if(hn.length() != 0 && mlistItems.size() > 2) {
+                    Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
+                    startActivity(intent);
+                    namelist.add(hn);
+                    //finish() saves the states of everything in the xml and transfers the array to
+                    //finishedEasy's xml
+                    finish();
+                }
+
+
+
+//                AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+//                builder1.setMessage("Write your message here.");
+//                builder1.setCancelable(true);
+//
+//                builder1.setPositiveButton(
+//                        "Yes",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int id) {
+//                                dialog.cancel();
+//                            }
+//                        });
+//
+//                builder1.setNegativeButton(
+//                        "No",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int id) {
+//                                dialog.cancel();
+//                            }
+//                        });
+//
+//                AlertDialog alert11 = builder1.create();
+//                alert11.show();
+                else {
+                    if(mlistItems.size() < 3){
+                        AlertDialog alertDialog = new AlertDialog.Builder(Easy.this).create();
+                        alertDialog.setTitle("No Clues");
+                        alertDialog.setMessage("Please Enter at least 3 Clues!");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+                    }
+                    if(hn.length() == 0) {
+                        AlertDialog alertDialog = new AlertDialog.Builder(Easy.this).create();
+                        alertDialog.setTitle("No Name");
+                        alertDialog.setMessage("Please Name Your Hunt!");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+                    }
+                }
+
             }
         });
 
@@ -260,6 +320,7 @@ public class Easy extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
+                mlistItems.clear();
                 Intent intent = new Intent(getApplicationContext(), Local.class);
                 startActivity(intent);
             }
