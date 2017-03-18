@@ -1,7 +1,10 @@
 package com.example.jacksonglynn.thehunt3;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListAdapter;
@@ -60,11 +63,41 @@ public class FinishedEasy extends Easy {
         hunt.setAdapter(adpt);
         hunt.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
+//                android.R.layout.simple_list_item_1, mStringList) {
+//            @Override
+//            public View getView(int position, View convertView, ViewGroup parent) {
+//                View view = super.getView(position, convertView, parent);
+//                TextView text = (TextView) view.findViewById(android.R.id.text1);
+//                text.setTextColor(Color.BLACK);
+//                return view;
+//            }
+//        };
+
+
         //creates the list view and sets up how it looks and acts
         final ArrayAdapter<String> adpt2 = new ArrayAdapter<String>(this,
-                android.R.layout.simple_expandable_list_item_1, namelist);
+                android.R.layout.simple_list_item_1, namelist) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView textView = ((TextView) view.findViewById(android.R.id.text1));
+                textView.setTextSize(35);
+                textView.setTextColor(0xFFFFFFFF);
+                //textView.setMinHeight(0); // Min Height
+                //textView.setTextColor(3324321);
+               // textView.setMinimumHeight(0); // Min Height
+                //textView.setHeight(); // Height
+                return view;
+            }
+        };
         huntName.setAdapter(adpt2);
-        huntName.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        huntName.setChoiceMode(ListView.CHOICE_MODE_NONE);
+
+       // ((ListView) convertView.findViewById(R.id.huntName)).setTypeface(null, Typeface.BOLD);
+
+        //((TextView) convertView.findViewById(R.id.huntName)).setTypeface(null, Typeface.BOLD);
+       // huntName.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
 //        huntName.setText(namelist.toString().trim());
 //        huntName.setMovementMethod(new ScrollingMovementMethod());

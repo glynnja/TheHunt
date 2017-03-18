@@ -7,13 +7,14 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="58dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/buttonshape3"
         android:id="@+id/huntName" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="360dp"
         android:id="@+id/hunt" />
-
 
     <Button
         android:text="Complete Scavenger Hunt"

@@ -65,6 +65,7 @@ public class Finished extends FinishedEasy {
                 startActivity(i);
                 //Clears all data after going to main screen
                 mlistItems.clear();
+                namelist.clear();
             }
         });
     }
