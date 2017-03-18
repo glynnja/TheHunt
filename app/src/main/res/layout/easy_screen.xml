@@ -16,6 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/hname"
+        android:textSize="20sp"
+        android:textColor="#000000"
         android:layout_weight="0.03" />
 
     <EditText
@@ -29,7 +31,7 @@
     <TextView
         android:text="TextView"
         android:textColor="#000000"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/clue"
@@ -47,7 +49,7 @@
     <Button
         android:text="Add to Scavenger Hunt"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/add"
@@ -67,7 +69,7 @@
     <Button
         android:text="Delete Checked Items From Hunt"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/delete"
@@ -81,7 +83,7 @@
     <Button
         android:text="Finish Creating Hunt"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/finish"
@@ -95,7 +97,7 @@
     <Button
         android:text="Back to Local"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/back"

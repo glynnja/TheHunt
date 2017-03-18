@@ -139,6 +139,12 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".FinishedPlay"
+            android:label="TheHunt3"
+            android:screenOrientation="portrait">
+        </activity>
+
 
     </application>
 

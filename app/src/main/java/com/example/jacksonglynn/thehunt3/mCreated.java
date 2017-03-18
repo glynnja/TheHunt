@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 /***************************************************************************************************
  *
@@ -16,6 +18,12 @@ import android.widget.TextView;
  * @version (2/20/2017)
  **************************************************************************************************/
 public class mCreated extends mEasy {
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<String> multClues = new ArrayList<String>();
+
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<String> multName = new ArrayList<String>();
+
     /*Creates the button on the main screen */
     private Button back, main;
 
@@ -68,8 +76,13 @@ public class mCreated extends mEasy {
 //                startActivity(i);
                 Intent intent = new Intent(getApplicationContext(), Multiplayer.class);
                 startActivity(intent);
+
+                multClues.addAll(multE);
+                multName.addAll(multlist);
+
                 //Clears all data after going to main screen
                 multE.clear();
+                multlist.clear();
             }
         });
 
@@ -92,8 +105,13 @@ public class mCreated extends mEasy {
                         .getLaunchIntentForPackage( getBaseContext().getPackageName() );
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+
+                multClues.addAll(multE);
+                multName.addAll(multlist);
+
                 //Clears all data after going to main screen
                 multE.clear();
+                multlist.clear();
             }
         });
     }

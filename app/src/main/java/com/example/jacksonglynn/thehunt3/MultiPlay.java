@@ -3,6 +3,7 @@ package com.example.jacksonglynn.thehunt3;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.method.ScrollingMovementMethod;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
-public class MultiPlay extends Multiplayer {
+public class MultiPlay extends mCreated {
     /*Creates the buttons on the rules screen */
     private Button play, back;
 
@@ -55,11 +56,13 @@ public class MultiPlay extends Multiplayer {
         back = (Button) findViewById(R.id.back);
 
 
-
+//
+//        final ArrayAdapter<String> adpt2 = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_multiple_choice, playList);
         final ArrayAdapter<String> adpt2 = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_multiple_choice, playList);
+               android.R.layout.simple_list_item_multiple_choice, multName);
         plist.setAdapter(adpt2);
-        plist.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        plist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
 
         //Tells the text box clue what to put into it.
@@ -80,8 +83,16 @@ public class MultiPlay extends Multiplayer {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), Hard.class);
-//                startActivity(intent);
+                SparseBooleanArray checkedItemPositions = plist.getCheckedItemPositions();
+                int itemCount = plist.getCount();
+                for(int i=itemCount-1; i >= 0; i--){
+                        if (checkedItemPositions.get(i)) {
+                            playList.add(multName.get(i));
+                            Intent intent = new Intent(getApplicationContext(), FinishedPlay.class);
+                            startActivity(intent);
+                        }
+                }
+
             }
         });
 

@@ -27,11 +27,14 @@ public class mEasy extends Multiplayer {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
     public final static ArrayList<String> multE = new ArrayList<String>();
 
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<String> multlist = new ArrayList<String>();
+
     /*Creates the buttons on the main screen */
     private Button add, finish, back, delete;
 
     /*Creates the EditText shown in the xml*/
-    private EditText enter;
+    private EditText enter, name;
 
     /*Creates the ListView shown in the xml*/
     private ListView mHunt;
@@ -40,7 +43,7 @@ public class mEasy extends Multiplayer {
 //    private RecyclerView list2;
 
     /*Creates the Text shown in the xml*/
-    private TextView clue;
+    private TextView clue, hName;
 
 
     /***********************************************************************************************
@@ -57,11 +60,17 @@ public class mEasy extends Multiplayer {
         //creates the text clue and links it to the correct text box in the xml
         clue = (TextView) findViewById(R.id.clue);
 
+        //creates the text clue and links it to the correct text box in the xml
+        hName = (TextView) findViewById(R.id.huntName);
+
         //creates the editText and links it to the correct editText in the class
         enter = (EditText) findViewById(R.id.enter);
 
         //creates the listView and links it to the correct listView in the class
         mHunt = (ListView) findViewById(R.id.mHunt);
+
+        //creates the editText and links it to the correct editText in the class
+        name = (EditText) findViewById(R.id.name);
 
 //        //creates the listView and links it to the correct listView in the class
 //        list2 = (RecyclerView) findViewById(R.id.list2);
@@ -93,6 +102,10 @@ public class mEasy extends Multiplayer {
         //Tells the text box clue what to put into it.
         clue.setText("Enter Your Clue: ");
         clue.setMovementMethod(new ScrollingMovementMethod());
+
+        //Tells the text box clue what to put into it.
+        hName.setText("Name Your Scavenger Hunt: ");
+        hName.setMovementMethod(new ScrollingMovementMethod());
         /*******************************************************************************************
          * Creates the button listener for add. This tells the buttons what to do when it is
          * clicked.
@@ -226,12 +239,43 @@ public class mEasy extends Multiplayer {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), mCreated.class);
-                startActivity(intent);
+                String hn = name.getText().toString().trim();
+                if(hn.length() != 0 && multE.size() > 2) {
+                    Intent intent = new Intent(getApplicationContext(), mCreated.class);
+                    startActivity(intent);
+                    multlist.add(hn);
 
-                //finish() saves the states of everything in the xml and transfers the array to
-                //finishedEasy's xml
-                finish();
+                    //finish() saves the states of everything in the xml and transfers the array to
+                    //finishedEasy's xml
+                    finish();
+                }
+
+                else {
+                    if (multE.size() < 3) {
+                        AlertDialog alertDialog = new AlertDialog.Builder(mEasy.this).create();
+                        alertDialog.setTitle("Add More Clues");
+                        alertDialog.setMessage("Please Enter at least 3 Clues!");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+                    }
+                    if (hn.length() == 0) {
+                        AlertDialog alertDialog = new AlertDialog.Builder(mEasy.this).create();
+                        alertDialog.setTitle("No Name");
+                        alertDialog.setMessage("Please Name Your Hunt!");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+                    }
+                }
             }
         });
 
