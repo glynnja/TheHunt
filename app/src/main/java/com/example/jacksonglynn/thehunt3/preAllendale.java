@@ -20,9 +20,9 @@ import java.util.ArrayList;
  **************************************************************************************************/
 public class preAllendale extends ScavengerHunt{
     /*Creates the Array shown in the xml */
-    private String allendaleList[] = {"Find the Park.", "Check out the High School.",
-            "Find the local Library.", "Find the post office.",
-            "Find Hungry Howies."};
+    private String allendaleList[] = {"Find the playground in the Park.", "Go to the High School.",
+            "Find the local Library.", "Find the post office.", "Find the Football Field.",
+            "Find Hungry Howies.", "Go to GVSU's campus", "Go to Walgreens"};
 
     /*Creates the back button */
     private Button back;

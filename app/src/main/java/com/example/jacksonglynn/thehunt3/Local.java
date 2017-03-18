@@ -12,7 +12,7 @@ import android.widget.Button;
  * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
-public class Local extends ScavengerHunt {
+public class Local extends Easy {
     /*Creates the buttons on the rules screen */
     private Button preSaved, easy, hard, back;
 
@@ -72,6 +72,8 @@ public class Local extends ScavengerHunt {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
+                namelist.clear();
+                mlistItems.clear();
                 Intent intent = new Intent(getApplicationContext(), Easy.class);
                 startActivity(intent);
             }
