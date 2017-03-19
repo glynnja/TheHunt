@@ -92,6 +92,7 @@ public class Easy extends ScavengerHunt {
                 android.R.layout.simple_list_item_multiple_choice, mlistItems);
         list.setAdapter(adpt);
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
         //list2.setAdapter(adpt);
 
 //        final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
