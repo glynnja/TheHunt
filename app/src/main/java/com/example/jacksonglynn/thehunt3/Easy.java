@@ -107,68 +107,6 @@ public class Easy extends ScavengerHunt {
         //Tells the text box clue what to put into it.
         hname.setText("Name Your Scavenger Hunt: ");
         hname.setMovementMethod(new ScrollingMovementMethod());
-        /*******************************************************************************************
-         * Creates the button listener for add. This tells the buttons what to do when it is
-        * clicked.
-        ******************************************************************************************/
-//        list.setOnItemSelectedListener(new View.OnContextClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                m_listItems.remove(list.toString());
-//            }
-//
-//        });
-//        list.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                SparseBooleanArray checkedPositions = new SparseBooleanArray();
-//                checkedPositions.clear();
-//                checkedPositions = list.getCheckedItemPositions();
-//                int size = checkedPositions.size();
-//                if (size != 0) {
-//
-//                    for (int i = 0; i <= size; i++) {
-//                        if (checkedPositions.valueAt(i)) {
-//                            list.clear(list.getItemAtPosition(i));
-//                            m_listItems.remove(list.getItemAtPosition());
-//                            list.setAdapter(adpt);
-//                            //list.notifyDataSetChanged();
-//                        }
-//                    }
-//                } else {
-//                }
-//            }
-//        });
-
-      //  list.setOnClickListener(new View.OnClickListener() {
-       // list.setItemChecked(new View.OnClickListener() {
-         //   list.setItemChecked(this, View.OnClickListener());{
-//            /***************************************************************************************
-//             * tells the back button to go back to the easy class
-//             *
-//             * @param v - the button when clicked
-//             **************************************************************************************/
-//           // @Override
-//            public void onItemClick(final View v) {
-//                AlertDialog.Builder mes = new AlertDialog.Builder(Easy.this);
-//                mes.setTitle("Delete?");
-//                mes.setMessage("Are you sure you want to delete?");
-//                mes.setNegativeButton("Cancel", null);
-//                mes.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        mlistItems.remove(v);
-//                        adpt.notifyDataSetChanged();
-//                    }});
-//                }
-//            });
-
-//        list.setOnLongClickListener(new View.OnLongClickListener()
-//                                   {
-//                                       @Override
-//                                       public boolean onLongClick(View view) {
-//                                           remove(listView.indexOfChild(view));
-//                                           return true;
-//                                       }
-//                                   });
 
 
         /*******************************************************************************************

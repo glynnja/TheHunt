@@ -41,7 +41,7 @@ public class LocalRules extends ActionBarActivity {
 
         //Tells the text box ffaRules what to put into it.
         ffaRules.setText("In Local there are three options! \n"
-                +"      - Easy, PreSaved, and Hard. \n\n\n"
+                +"      - Easy, PreSaved, and Hard. \n\n"
                 +"Easy:\n"
                 +"In the Easy option it will ask you for two different things.   \n"
                 +"      - The name of your scavenger hunt and the clues to your scavenger hunt. \n\n"

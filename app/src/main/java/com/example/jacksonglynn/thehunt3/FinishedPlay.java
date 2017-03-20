@@ -118,7 +118,9 @@ public class FinishedPlay extends MultiPlay {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Finished.class);
+              //  playList.clear();
+                playList2.clear();
+                Intent intent = new Intent(getApplicationContext(), MultiFinished.class);
                 startActivity(intent);
             }
         });
