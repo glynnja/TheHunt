@@ -26,13 +26,18 @@ public class MultiPlay extends mCreated {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
     public final static ArrayList<String> playList = new ArrayList<String>();
 
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<String> playList2 = new ArrayList<String>();
+
+
     /*Creates the ListView shown in the xml*/
     private ListView plist;
 
     /*Creates the Text shown in the xml*/
     private TextView rules;
 
-
+    private int total = 0;
+    private int amount = 0;
     /***********************************************************************************************
      *Creates the look of the local screen and tells it what to put in it. It also
      * tells the buttons what to do when clicked.
@@ -85,9 +90,27 @@ public class MultiPlay extends mCreated {
             public void onClick(View v) {
                 SparseBooleanArray checkedItemPositions = plist.getCheckedItemPositions();
                 int itemCount = plist.getCount();
-                for(int i=itemCount-1; i >= 0; i--){
+                //for(int i=itemCount-1; i >= 0; i--){
+                 for(int i = 0; i< itemCount; i++){
+                    total = total + arraycount.get(i);
                         if (checkedItemPositions.get(i)) {
                             playList.add(multName.get(i));
+
+                           // arraycount.get(i);
+                           amount = total - arraycount.get(i);
+                          //  multClues = multarray.get(i);
+                            //multClues.addAll(multarray.get(i));
+                            //multClues[amount][total]
+                            //multClues.get[amount][total];
+                            for(int c= amount; c < total; c++){
+                                playList2.add(multClues.get(c));
+                            }
+
+//                            int c =0;
+//                            while (multarray.get(i).get(c) != null){
+//                                multClues.add(multarray.get(i).get(c));
+//                                c++;
+//                            }
                             Intent intent = new Intent(getApplicationContext(), FinishedPlay.class);
                             startActivity(intent);
                         }

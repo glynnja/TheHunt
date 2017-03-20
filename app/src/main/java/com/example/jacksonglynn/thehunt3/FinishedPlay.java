@@ -59,7 +59,9 @@ public class FinishedPlay extends MultiPlay {
 
         //creates the list view and sets up how it looks and acts
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_multiple_choice, multClues);
+                android.R.layout.simple_list_item_multiple_choice, playList2);
+       // android.R.layout.simple_list_item_multiple_choice, multarray);
+
         hunt.setAdapter(adpt);
         hunt.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
@@ -137,6 +139,7 @@ public class FinishedPlay extends MultiPlay {
             @Override
             public void onClick(View v) {
                 playList.clear();
+                playList2.clear();
                 Intent intent = new Intent(getApplicationContext(), MultiPlay.class);
                 startActivity(intent);
             }

@@ -19,10 +19,15 @@ import java.util.ArrayList;
  **************************************************************************************************/
 public class mCreated extends mEasy {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
-    public final static ArrayList<String> multClues = new ArrayList<String>();
+    public static ArrayList<String> multClues = new ArrayList<String>();
 
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
     public final static ArrayList<String> multName = new ArrayList<String>();
+
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<String> temp = new ArrayList<String>();
+
+
 
     /*Creates the button on the main screen */
     private Button back, main;
@@ -77,9 +82,13 @@ public class mCreated extends mEasy {
                 Intent intent = new Intent(getApplicationContext(), Multiplayer.class);
                 startActivity(intent);
 
-                multClues.addAll(multE);
+              //  multClues.addAll(multE);
                 multName.addAll(multlist);
-
+                multClues.addAll(multE);
+                //multClues.add(arraycount.toString());
+               // temp.addAll(multE);
+               // multarray.add(temp);
+               // temp.removeAll(multE);
                 //Clears all data after going to main screen
                 multE.clear();
                 multlist.clear();
@@ -106,7 +115,7 @@ public class mCreated extends mEasy {
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
 
-                multClues.addAll(multE);
+               // multClues.addAll(multE);
                 multName.addAll(multlist);
 
                 //Clears all data after going to main screen

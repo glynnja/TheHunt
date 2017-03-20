@@ -30,6 +30,14 @@ public class mEasy extends Multiplayer {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
     public final static ArrayList<String> multlist = new ArrayList<String>();
 
+//    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+//    public final static ArrayList<ArrayList<String>> multarray = new ArrayList<ArrayList<String>>();
+
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<Integer> arraycount = new ArrayList<Integer>();
+
+
+
     /*Creates the buttons on the main screen */
     private Button add, finish, back, delete;
 
@@ -41,6 +49,8 @@ public class mEasy extends Multiplayer {
 
 //    /*Creates the ListView shown in the xml*/
 //    private RecyclerView list2;
+
+    public int count = 0;
 
     /*Creates the Text shown in the xml*/
     private TextView clue, hName;
@@ -168,7 +178,7 @@ public class mEasy extends Multiplayer {
 //                                           return true;
 //                                       }
 //                                   });
-
+      //  int count = 0;
 
         /*******************************************************************************************
          * Creates the button listener for delete. This tells the buttons what to do when it is
@@ -215,8 +225,12 @@ public class mEasy extends Multiplayer {
             public void onClick(View v) {
                 String ag = enter.getText().toString().trim();
                 //erases the edit text after submitting an answer
+
+               // int count = 0;
+
                 if(ag.length() != 0){
                     multE.add(ag);
+                    count++;
                     enter.setText("");
                 }
                 adpt.setNotifyOnChange(true);
@@ -244,6 +258,10 @@ public class mEasy extends Multiplayer {
                     Intent intent = new Intent(getApplicationContext(), mCreated.class);
                     startActivity(intent);
                     multlist.add(hn);
+                    arraycount.add(count);
+                   // multE.clone();
+                   // multarray.add(multE);
+
 
                     //finish() saves the states of everything in the xml and transfers the array to
                     //finishedEasy's xml
