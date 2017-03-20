@@ -200,6 +200,7 @@ public class mEasy extends Multiplayer {
                 for(int i=itemCount-1; i >= 0; i--){
                     if(checkedItemPositions.get(i)){
                         adpt.remove(multE.get(i));
+                        count--;
                     }
                 }
 
@@ -312,7 +313,8 @@ public class mEasy extends Multiplayer {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MultiCreate.class);
+                multE.clear();
+                Intent intent = new Intent(getApplicationContext(), Multiplayer.class);
                 startActivity(intent);
             }
         });

@@ -117,6 +117,7 @@ public class mCreated extends mEasy {
 
                // multClues.addAll(multE);
                 multName.addAll(multlist);
+                multClues.addAll(multE);
 
                 //Clears all data after going to main screen
                 multE.clear();

@@ -40,13 +40,26 @@ public class LocalRules extends ActionBarActivity {
         ffaRules = (TextView) findViewById(R.id.ffaRules);
 
         //Tells the text box ffaRules what to put into it.
-        ffaRules.setText("Create your own local scavenger hunt? \n\n"
-                +"1. \n\n"
-                +"2. \n\n"
-                +"3. \n\n"
-                +" \n\n"
-                +"1. \n\n"
-                +"2. ");
+        ffaRules.setText("In Local there are three options! \n"
+                +"      - Easy, PreSaved, and Hard. \n\n\n"
+                +"Easy:\n"
+                +"In the Easy option it will ask you for two different things.   \n"
+                +"      - The name of your scavenger hunt and the clues to your scavenger hunt. \n\n"
+                +"Some requirements to the name and the clues. \n"
+                +"      - You must have entered something in the name and you must have at least 3 clues. \n\n"
+                +"If you mess up on a clue that you've already added. \n"
+                +"      - Find your clue in the screen below, Check the box to that clue and hit the delete button. \n\n"
+                +"When you are finished creating your scavenger hunt click Finish scavenger hunt and begin playing your hunt.\n\n\n"
+                +"PreSaved:\n "
+                +"In PreSaved there are three options.\n"
+                +"      - GVSU, Allendale, and Downtown Grand Rapids\n\n"
+                +"How to play each PreSaved\n"
+                +"      - Walk within 25 meters of the clue to check the box when all boxes are checked you win\n\n\n"
+                +"Hard:\n"
+                +"In hard you will be asked to add a picture clue.\n"
+                +"      - Simply click the icon to find a picture on google images, and then click the add button.\n\n"
+                +"When you finished adding to the scavenger hunt.\n"
+                +"      - Click Finish Scavenger Hunt and enjoy playing your hunt.");
         ffaRules.setMovementMethod(new ScrollingMovementMethod());
 
 

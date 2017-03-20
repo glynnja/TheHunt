@@ -85,7 +85,8 @@ public class Multiplayer extends ScavengerHunt implements OnMapReadyCallback {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MultiCreate.class);
+                mEasy.multE.clear();
+                Intent intent = new Intent(getApplicationContext(), mEasy.class);
                 startActivity(intent);
             }
         });
