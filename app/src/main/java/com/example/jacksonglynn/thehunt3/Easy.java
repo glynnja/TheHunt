@@ -39,9 +39,6 @@ public class Easy extends ScavengerHunt {
     /*Creates the ListView shown in the xml*/
     private ListView list;
 
-//    /*Creates the ListView shown in the xml*/
-//    private RecyclerView list2;
-
     /*Creates the Text shown in the xml*/
      private TextView clue, hname;
 
@@ -72,9 +69,6 @@ public class Easy extends ScavengerHunt {
         //creates the listView and links it to the correct listView in the class
         list = (ListView) findViewById(R.id.list);
 
-//        //creates the listView and links it to the correct listView in the class
-//        list2 = (RecyclerView) findViewById(R.id.list2);
-
         //creates the add button and links it to the correct button in the class
         add = (Button) findViewById(R.id.add);
 
@@ -91,14 +85,8 @@ public class Easy extends ScavengerHunt {
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_multiple_choice, mlistItems);
         list.setAdapter(adpt);
+        //Creates the how the choice mode reacts to being clickec
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
-        //list2.setAdapter(adpt);
-
-//        final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_list_item_multiple_choice, mlistItems);
-//        list.setAdapter(adpt);
-//        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         //Tells the text box clue what to put into it.
         clue.setText("Enter Your Clue: ");
@@ -126,6 +114,7 @@ public class Easy extends ScavengerHunt {
                 SparseBooleanArray checkedItemPositions = list.getCheckedItemPositions();
                 int itemCount = list.getCount();
 
+                //loops through to find all checked boxes
                 for(int i=itemCount-1; i >= 0; i--){
                     if(checkedItemPositions.get(i)){
                         adpt.remove(mlistItems.get(i));
@@ -181,6 +170,7 @@ public class Easy extends ScavengerHunt {
             public void onClick(View v) {
                 String hn = name.getText().toString().trim();
 
+                //checks to see if the two requirements are checked
                 if(hn.length() != 0 && mlistItems.size() > 2) {
                     Intent intent = new Intent(getApplicationContext(), FinishedEasy.class);
                     startActivity(intent);
@@ -191,6 +181,7 @@ public class Easy extends ScavengerHunt {
                 }
 
                 else {
+                    //if list of clues is not at least 3 display message
                     if(mlistItems.size() < 3){
                         AlertDialog alertDialog = new AlertDialog.Builder(Easy.this).create();
                         alertDialog.setTitle("Add More Clues");
@@ -203,6 +194,7 @@ public class Easy extends ScavengerHunt {
                                 });
                         alertDialog.show();
                     }
+                    //if name of hunt is empty display message
                     if(hn.length() == 0) {
                         AlertDialog alertDialog = new AlertDialog.Builder(Easy.this).create();
                         alertDialog.setTitle("No Name");
