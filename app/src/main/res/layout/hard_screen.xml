@@ -11,6 +11,13 @@
         android:id="@+id/sorry"
         android:layout_weight="0.20" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="231dp"
+        android:id="@+id/image">
+
+    </FrameLayout>
+
     <Button
         android:text="Add To Scavenger Hunt"
         android:textColor="#FFFFFF"

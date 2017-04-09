@@ -40,7 +40,7 @@ public class Finished extends FinishedEasy {
         win = (TextView) findViewById(R.id.win);
 
         //Tells the text box Win what to put into it.
-        win.setText("YOU WIN!!!");
+        win.setText("Congratulations You Completed:\n" + namelist.get(0).toString());
         win.setMovementMethod(new ScrollingMovementMethod());
 
 

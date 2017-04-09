@@ -2,9 +2,11 @@ package com.example.jacksonglynn.thehunt3;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 /***************************************************************************************************
@@ -21,6 +23,17 @@ public class Hard extends ScavengerHunt{
     /*Creates the Text shown in sorry*/
     private TextView sorry;
 
+    private FrameLayout image;
+
+//    static final int REQUEST_IMAGE_CAPTURE = 1;
+//
+//    private void dispatchTakePictureIntent() {
+//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//        }
+//
+//    }
 
     /***********************************************************************************************
      *Creates the look of the hard screen and tell the text sorry what to put in it. It also
@@ -31,6 +44,8 @@ public class Hard extends ScavengerHunt{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hard_screen);
+
+        image = (FrameLayout) findViewById(R.id.image);
 
         //creates the back button and links it to the correct button in the class
         back = (Button) findViewById(R.id.back);
