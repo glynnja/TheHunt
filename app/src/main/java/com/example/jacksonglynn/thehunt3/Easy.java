@@ -31,7 +31,7 @@ public class Easy extends ScavengerHunt {
     public final static ArrayList<String> namelist = new ArrayList<String>();
 
     /*Creates the buttons on the main screen */
-    private Button add, finish, back, delete;
+    private Button add, finish, back, delete, map;
 
     /*Creates the EditText shown in the xml*/
     private EditText enter, name;
@@ -71,6 +71,9 @@ public class Easy extends ScavengerHunt {
 
         //creates the add button and links it to the correct button in the class
         add = (Button) findViewById(R.id.add);
+
+        //creates the location button and links it to the correct button in the class
+        map = (Button) findViewById(R.id.map);
 
         //creates the delete button and links it to the correct button in the class
         delete = (Button) findViewById(R.id.delete);
@@ -135,7 +138,7 @@ public class Easy extends ScavengerHunt {
 
 
             /***************************************************************************************
-             * tells the back button to go back to the easy class
+             * tells the add button to add the text to an array
              *
              * @param v - the button when clicked
              **************************************************************************************/
@@ -162,7 +165,7 @@ public class Easy extends ScavengerHunt {
 
 
             /***************************************************************************************
-             * tells the back button to go back to the finishedEasy class
+             * tells the back button to go back to the FinishedEasy.class
              *
              * @param v - the button when clicked
              **************************************************************************************/
@@ -229,6 +232,26 @@ public class Easy extends ScavengerHunt {
             public void onClick(View v) {
                 mlistItems.clear();
                 Intent intent = new Intent(getApplicationContext(), Local.class);
+                startActivity(intent);
+            }
+        });
+
+
+        /*******************************************************************************************
+         * Creates the button listener for location button. This tells the buttons what to do when
+         * it is clicked.
+         ******************************************************************************************/
+        map.setOnClickListener(new View.OnClickListener() {
+
+
+            /***************************************************************************************
+             * tells the map button to go to the Multiplayer2.class
+             *
+             * @param v - the button when clicked
+             **************************************************************************************/
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Multiplayer2.class);
                 startActivity(intent);
             }
         });
