@@ -39,14 +39,19 @@ public class MultiplayerRules extends ActionBarActivity {
         //creates the text and links it to the correct text box in the xml
         ffaRules = (TextView) findViewById(R.id.ffaRules);
 
-        //Tells the text box ffaRules what to put into it.
-        ffaRules.setText("Create your own local scavenger hunt? \n\n"
-                +"1. \n\n"
-                +"2. \n\n"
-                +"3. \n\n"
+        //multiplayer rules.
+        ffaRules.setText("Create your own multiplayer scavenger hunt? \n\n"
+                +"1. \nIn multiplayer, you can either create your own hunt for others to play or play someone elses\n"
+                +"2. \nAfter logging into Google Play, you will be able to hunt with others from around the world!\n"
+                +"3. \n This is where you will choose whether to post a hunt or play someone elses!\n"
+                +"4. \nIf you decide to play someone elses hunt, follow their clues until you finish all of the checkpoints!\n"
+                +"5. \nYou will have to be within 50 feet of the location if you want to check that clue off your hunt.\n"
+                +"6. \nAfter you have finished all of the clues, you have completed that persons hunt.\n"
+                +"7. \nEither pick another hunt or make your own. Happy Hunting!\n"
                 +" \n\n"
-                +"1. \n\n"
-                +"2. ");
+                +"1. \nIf you choose to play a presaved hunt, then you will first choose presaved.\n"
+                +"2. Then pick from the list of presaved locations that you would like to play from."
+                +"3. \nComplete all the checkmarks to complete that hunt! Happy Hunting!\n");
         ffaRules.setMovementMethod(new ScrollingMovementMethod());
 
 
