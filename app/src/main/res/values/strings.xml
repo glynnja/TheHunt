@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TheHunt3</string>
     <string name="title_activity_multiplayer2">Map</string>
+    <string name="title_activity_map_test_austin">Map</string>
 </resources>
