@@ -32,7 +32,9 @@ public class MapTestAustin extends FragmentActivity {
         //Do a null check to confirm that we have set the map up
         if (mMap == null) {
             //Try to obtain map from the supportmapfragment
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+           // mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+//            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync();
+//            mapFragment.getMapAsync(this);
             //Check if it worked
             if (mMap != null) {
                 setUpMap();
@@ -42,8 +44,8 @@ public class MapTestAustin extends FragmentActivity {
 
 
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0).title("Marker"));
-        mMap.setMyLocationEnabled(true);
+      //  mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0).title("Marker"));
+      //  mMap.setMyLocationEnabled(true);
 }
 
 
