@@ -14,7 +14,7 @@ import android.widget.Button;
  **************************************************************************************************/
 public class Local extends Easy {
     /*Creates the buttons on the rules screen */
-    private Button preSaved, easy, hard, back;
+    private Button preSaved, easy, back;
 
 
     /***********************************************************************************************
@@ -32,9 +32,6 @@ public class Local extends Easy {
 
         //creates the Easy button and links them to the correct button in the class
         easy = (Button) findViewById(R.id.Easy);
-
-        //creates the Hard button and links them to the correct button in the class
-        hard = (Button) findViewById(R.id.Hard);
 
         //creates the back button and links them to the correct button in the class
         back = (Button) findViewById(R.id.back);
@@ -75,25 +72,6 @@ public class Local extends Easy {
                 namelist.clear();
                 mlistItems.clear();
                 Intent intent = new Intent(getApplicationContext(), Easy.class);
-                startActivity(intent);
-            }
-        });
-
-
-        /*******************************************************************************************
-         * Creates the button listener for Hard. This tells the buttons what to do when it is
-         * clicked.
-         ******************************************************************************************/
-        hard.setOnClickListener(new View.OnClickListener() {
-
-
-            /***************************************************************************************
-             * tells the back button to go back to the hard class
-             * @param v - the button when clicked
-             **************************************************************************************/
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Hard.class);
                 startActivity(intent);
             }
         });

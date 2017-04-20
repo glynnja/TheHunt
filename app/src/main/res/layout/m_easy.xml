@@ -43,20 +43,6 @@
         android:layout_weight="0.00" />
 
     <Button
-        android:text="Add A Location"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/map"
-        android:layout_weight="0.01"
-        android:background="@drawable/buttonshape3"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"/>
-
-    <Button
         android:text="Add To Hunt"
         android:textColor="#FFFFFF"
         android:textSize="25sp"

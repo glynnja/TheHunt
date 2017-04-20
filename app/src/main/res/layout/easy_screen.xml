@@ -47,20 +47,6 @@
 
 
     <Button
-        android:text="Add A Location"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/map"
-        android:layout_weight="0.03"
-        android:background="@drawable/buttonshape2"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"/>
-
-    <Button
         android:text="Add to Scavenger Hunt"
         android:textColor="#FFFFFF"
         android:textSize="20sp"

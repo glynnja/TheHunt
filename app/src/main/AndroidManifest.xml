@@ -85,10 +85,6 @@
             android:label="TheHunt3"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Hard"
-            android:label="TheHunt3"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".FinishedEasy"
             android:label="TheHunt3"
             android:screenOrientation="portrait" />
@@ -110,10 +106,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".preDownGR"
-            android:label="TheHunt3"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".FinishedHard"
             android:label="TheHunt3"
             android:screenOrientation="portrait" />
         <activity
@@ -151,20 +143,6 @@
             <!--android:value="@string/google_maps_key" />-->
 
 
-        <activity
-            android:name=".Multiplayer2"
-            android:label="@string/title_activity_multiplayer2">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity
-            android:name=".MapTestAustin"
-            android:label="@string/title_activity_map_test_austin" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>

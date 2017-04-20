@@ -39,7 +39,7 @@ public class mEasy extends Multiplayer {
 
 
     /*Creates the buttons on the main screen */
-    private Button add, finish, back, delete, map;
+    private Button add, finish, back, delete;// map;
 
     /*Creates the EditText shown in the xml*/
     private EditText enter, name;
@@ -88,8 +88,8 @@ public class mEasy extends Multiplayer {
         //creates the add button and links it to the correct button in the class
         add = (Button) findViewById(R.id.add);
 
-        //creates the location button and links it to the correct button in the class
-        map = (Button) findViewById(R.id.map);
+//        //creates the location button and links it to the correct button in the class
+//        map = (Button) findViewById(R.id.map);
 
         //creates the delete button and links it to the correct button in the class
         delete = (Button) findViewById(R.id.delete);
@@ -239,6 +239,8 @@ public class mEasy extends Multiplayer {
                 }
                 adpt.setNotifyOnChange(true);
                 mHunt.setAdapter(adpt);
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -327,20 +329,20 @@ public class mEasy extends Multiplayer {
          * Creates the button listener for location button. This tells the buttons what to do when
          * it is clicked.
          ******************************************************************************************/
-        map.setOnClickListener(new View.OnClickListener() {
-
-
-            /***************************************************************************************
-             * tells the back button to go to the Multiplayer2.class
-             *
-             * @param v - the button when clicked
-             **************************************************************************************/
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Multiplayer2.class);
-                startActivity(intent);
-            }
-        });
+//        map.setOnClickListener(new View.OnClickListener() {
+//
+//
+//            /***************************************************************************************
+//             * tells the back button to go to the Multiplayer2.class
+//             *
+//             * @param v - the button when clicked
+//             **************************************************************************************/
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 }
