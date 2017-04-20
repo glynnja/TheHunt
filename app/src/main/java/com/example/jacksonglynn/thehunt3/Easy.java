@@ -14,6 +14,9 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.gms.maps.model.Marker;
+
 import java.util.ArrayList;
 
 /***************************************************************************************************
@@ -29,6 +32,13 @@ public class Easy extends ScavengerHunt {
 
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
     public final static ArrayList<String> namelist = new ArrayList<String>();
+
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<Marker> locList = new ArrayList<Marker>();
+
+//    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+//    public final static ArrayList<String> locList = new ArrayList<String>();
+
 
     /*Creates the buttons on the main screen */
     private Button add, finish, back, delete;// map;
@@ -121,6 +131,7 @@ public class Easy extends ScavengerHunt {
                 for(int i=itemCount-1; i >= 0; i--){
                     if(checkedItemPositions.get(i)){
                         adpt.remove(mlistItems.get(i));
+                        locList.remove(locList.get(i));
                     }
                 }
 
@@ -149,11 +160,13 @@ public class Easy extends ScavengerHunt {
                 if(ag.length() != 0){
                     mlistItems.add(ag);
                     enter.setText("");
+                    Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                    startActivity(intent);
                 }
                 adpt.setNotifyOnChange(true);
                 list.setAdapter(adpt);
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+//                startActivity(intent);
             }
         });
 

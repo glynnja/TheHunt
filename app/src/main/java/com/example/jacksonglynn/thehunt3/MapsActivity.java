@@ -1,6 +1,8 @@
 package com.example.jacksonglynn.thehunt3;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -8,6 +10,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -24,7 +29,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
+import java.util.ArrayList;
+
+public class MapsActivity extends Easy implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener{
@@ -34,9 +41,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
+    private Button back;
+    private static final int EDIT_REQUEST = 1;
+
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<Marker> locList2 = new ArrayList<Marker>();
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -44,26 +57,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
+        //creates the back button and links it to the correct button in the class
+        back = (Button) findViewById(R.id.back);
+
+        //placeLoc = (TextView) findViewById(R.id.button_placeLocation);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        /*******************************************************************************************
+         * Creates the button listener for back. This tells the buttons what to do when it is
+         * clicked.
+         ******************************************************************************************/
+        back.setOnClickListener(new View.OnClickListener() {
+
+
+            /***************************************************************************************
+             * tells the back button to go back to the preSaved class
+             *
+             * @param v - the button when clicked
+             **************************************************************************************/
+            @Override
+            public void onClick(View v) {
+                locList.add(locList2.get(0));
+                Intent intent = new Intent(getApplicationContext(), Easy.class);
+                startActivity(intent);
+            }
+        });
+
     }
-// @Override
-// protected void onResume(){
-//     super.onResume();
-//     setUpMapIfNeeded();
-// }
-//private void setUpMapIfNeeded(){
-//    if(mMap == null) {
-//        mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-//        if (mMap != null) {
-//            setUpMap();
-//        }
-//    }
-//}
-//    private void setUpMap(){
-//        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
-//    }
+
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -87,17 +111,43 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 buildGoogleApiClient();
                 mMap.setMyLocationEnabled(true);
             }
-        }
-        else {
+        } else {
             buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }
 
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(final LatLng latLng) {
+                mMap.clear();
+                locList2.clear();
+                Marker marker = mMap.addMarker(new MarkerOptions().position(latLng)
+                        .icon(BitmapDescriptorFactory
+                                .defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                                .draggable(true).title("hello"));
+                locList2.add(marker);
+
+            }
 
 //        // Add a marker in Sydney and move the camera
 //        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (EDIT_REQUEST) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    MarkerOptions markerOptions = data.getParcelableExtra("marker");
+                    mMap.addMarker(markerOptions);
+                }
+                break;
+            }
+        }
     }
 
     protected synchronized void buildGoogleApiClient() {
@@ -145,7 +195,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         markerOptions.position(latLng);
         markerOptions.title("Current Position");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-        mCurrLocationMarker = mMap.addMarker(markerOptions);
+        //mCurrLocationMarker = mMap.addMarker(markerOptions);
+
 
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
@@ -221,5 +272,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //You can add here other case statements according to your requirement.
         }
     }
+
 }
 

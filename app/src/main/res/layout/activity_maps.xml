@@ -1,3 +1,9 @@
+<FrameLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapsActivity" >
+
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,3 +12,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.jacksonglynn.thehunt3.MapsActivity" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_list_selector"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="#80000000"
+        android:padding="4dp" >
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:gravity="center_horizontal|center_vertical"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="Back To Creating Hunt"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+            <!--android:text="@string/Popular"-->
+            <!--android:background="@drawable/shape_radiobutton"-->
+            <!--android:textColor="@color/textcolor_radiobutton" />-->
+        <View
+            android:id="@+id/VerticalLine"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="#aaa" />
+
+    </RadioGroup>
+</FrameLayout>

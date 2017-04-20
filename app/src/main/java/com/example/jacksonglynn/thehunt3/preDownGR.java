@@ -21,8 +21,8 @@ import java.util.ArrayList;
 public class preDownGR extends ScavengerHunt{
     /*Creates the Array shown in the xml */
     private String grList[] = {"Go to the Blue Bridge.", "Go explore the Devos building.",
-            "Check out the deltaplex.", "Checkout The Bob.",
-            "Find the downtown plaza."};
+            "Check out the Van Andel Arena.", "Checkout The Bob.",
+            "Find Rosa Parks Circle."};
 
     /*Creates the back button */
     private Button back;
