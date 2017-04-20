@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.SparseBooleanArray;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
@@ -21,7 +22,7 @@ import android.widget.TextView;
  * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
-public class FinishedEasy extends Easy {
+public class FinishedEasy extends MapsActivity {
     /*Creates the ListView shown in the xml*/
     private ListView hunt, huntName;
 
@@ -116,8 +117,13 @@ public class FinishedEasy extends Easy {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Finished.class);
-                startActivity(intent);
+
+              //  for(int i = 0; i < mlistItems.size(); i++) {
+                   // if (mLocationRequest == locList(mlistItems.get(i))) {
+                        Intent intent = new Intent(getApplicationContext(), Finished.class);
+                        startActivity(intent);
+                   // }
+              //  }
             }
         });
 

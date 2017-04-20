@@ -124,7 +124,7 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
                 Marker marker = mMap.addMarker(new MarkerOptions().position(latLng)
                         .icon(BitmapDescriptorFactory
                                 .defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-                                .draggable(true).title("hello"));
+                                .draggable(true));
                 locList2.add(marker);
 
             }
