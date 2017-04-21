@@ -15,7 +15,7 @@ import android.widget.TextView;
  * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
-public class MultiFinished extends FinishedPlay {
+public class FinishedPre extends preSaved {
     /*Creates the button on the main screen */
     private Button done;
 
@@ -31,7 +31,7 @@ public class MultiFinished extends FinishedPlay {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.multi_done);
+        setContentView(R.layout.done_screen);
 
         //creates the done button and links it to the correct button in the class
         done = (Button) findViewById(R.id.done);
@@ -40,7 +40,7 @@ public class MultiFinished extends FinishedPlay {
         win = (TextView) findViewById(R.id.win);
 
         //Tells the text box Win what to put into it.
-        win.setText("Congratulations You Completed:\n" + playList.get(0).toString());
+        win.setText("Congratulations You Completed A Hunt.");
         win.setMovementMethod(new ScrollingMovementMethod());
 
 
@@ -63,10 +63,6 @@ public class MultiFinished extends FinishedPlay {
                         .getLaunchIntentForPackage( getBaseContext().getPackageName() );
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
-                //clears the playList so it doesn't affect the MulitPlay class
-                playList.clear();
-                locList4.clear();
-                playList2.clear();
             }
         });
     }

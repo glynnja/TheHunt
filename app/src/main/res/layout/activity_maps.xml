@@ -32,7 +32,7 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            android:text="Back To Creating Hunt"
+            android:text="Add Location To Hunt"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
             <!--android:text="@string/Popular"-->

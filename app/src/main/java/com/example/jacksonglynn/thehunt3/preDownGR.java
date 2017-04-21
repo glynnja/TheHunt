@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import java.util.ArrayList;
 
 
 /***************************************************************************************************
@@ -25,7 +24,7 @@ public class preDownGR extends ScavengerHunt{
             "Find Rosa Parks Circle."};
 
     /*Creates the back button */
-    private Button back;
+    private Button back, done;
 
     /*Creates the Text shown in sorry*/
     private TextView rules;
@@ -52,6 +51,8 @@ public class preDownGR extends ScavengerHunt{
         //creates the back button and links it to the correct button in the class
         back = (Button) findViewById(R.id.back);
 
+        //creates the back button and links it to the correct button in the class
+        done = (Button) findViewById(R.id.done);
 
         //creates the list view and sets up how it looks and acts
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
@@ -79,6 +80,24 @@ public class preDownGR extends ScavengerHunt{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), preSaved.class);
+                startActivity(intent);
+            }
+        });
+
+        /*******************************************************************************************
+         * Creates the button listener for back. This tells the buttons what to do when it is
+         * clicked.
+         ******************************************************************************************/
+        done.setOnClickListener(new View.OnClickListener() {
+
+
+            /***************************************************************************************
+             * tells the back button to go back to the local class
+             * @param v - the button when clicked
+             **************************************************************************************/
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FinishedPre.class);
                 startActivity(intent);
             }
         });

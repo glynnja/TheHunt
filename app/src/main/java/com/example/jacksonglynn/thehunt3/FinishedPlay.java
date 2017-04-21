@@ -1,13 +1,8 @@
 package com.example.jacksonglynn.thehunt3;
 
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.content.Intent;
 import android.view.View;
@@ -25,11 +20,11 @@ public class FinishedPlay extends MultiPlay {
     /*Creates the ListView shown in the xml*/
     private ListView hunt, huntName;
 
-//    /*Creates the Text shown in the xml*/
-//    private TextView huntName;
-
     /*Creates the button on the main screen */
     private Button back, done;
+
+    /*Creates a counter*/
+    private int count = 0;
 
 
     /***********************************************************************************************
@@ -54,28 +49,12 @@ public class FinishedPlay extends MultiPlay {
         //creates the done button and links it to the correct button in the class
         done = (Button) findViewById(R.id.done);
 
-//        //creates the text clue and links it to the correct text box in the xml
-//        huntName = (TextView) findViewById(R.id.huntName);
-
         //creates the list view and sets up how it looks and acts
         final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_multiple_choice, playList2);
-       // android.R.layout.simple_list_item_multiple_choice, multarray);
 
         hunt.setAdapter(adpt);
         hunt.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
-//                android.R.layout.simple_list_item_1, mStringList) {
-//            @Override
-//            public View getView(int position, View convertView, ViewGroup parent) {
-//                View view = super.getView(position, convertView, parent);
-//                TextView text = (TextView) view.findViewById(android.R.id.text1);
-//                text.setTextColor(Color.BLACK);
-//                return view;
-//            }
-//        };
-
 
         //creates the list view and sets up how it looks and acts
         final ArrayAdapter<String> adpt2 = new ArrayAdapter<String>(this,
@@ -86,23 +65,12 @@ public class FinishedPlay extends MultiPlay {
                 TextView textView = ((TextView) view.findViewById(android.R.id.text1));
                 textView.setTextSize(35);
                 textView.setTextColor(0xFFFFFFFF);
-                //textView.setMinHeight(0); // Min Height
-                //textView.setTextColor(3324321);
-                // textView.setMinimumHeight(0); // Min Height
-                //textView.setHeight(); // Height
                 return view;
             }
         };
         huntName.setAdapter(adpt2);
         huntName.setChoiceMode(ListView.CHOICE_MODE_NONE);
 
-        // ((ListView) convertView.findViewById(R.id.huntName)).setTypeface(null, Typeface.BOLD);
-
-        //((TextView) convertView.findViewById(R.id.huntName)).setTypeface(null, Typeface.BOLD);
-        // huntName.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
-//        huntName.setText(namelist.toString().trim());
-//        huntName.setMovementMethod(new ScrollingMovementMethod());
 
         /*******************************************************************************************
          * Creates the button listener for done. This tells the buttons what to do when it is
@@ -118,10 +86,15 @@ public class FinishedPlay extends MultiPlay {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-              //  playList.clear();
-                playList2.clear();
-                Intent intent = new Intent(getApplicationContext(), MultiFinished.class);
-                startActivity(intent);
+                for(int c = 0; c < playList2.size()+1; c++){
+                    if(hunt.isItemChecked(c)){
+                        count++;
+                    }
+                    if(count == playList2.size()+1){
+                        Intent intent = new Intent(getApplicationContext(), MultiFinished.class);
+                        startActivity(intent);
+                    }
+                }
             }
         });
 
@@ -140,6 +113,7 @@ public class FinishedPlay extends MultiPlay {
              **************************************************************************************/
             @Override
             public void onClick(View v) {
+                locList4.clear();
                 playList.clear();
                 playList2.clear();
                 Intent intent = new Intent(getApplicationContext(), MultiPlay.class);

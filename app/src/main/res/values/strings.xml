@@ -3,4 +3,5 @@
     <string name="title_activity_multiplayer2">Map</string>
     <string name="title_activity_map_test_austin">Map</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_multiplayer_maps">Map</string>
 </resources>

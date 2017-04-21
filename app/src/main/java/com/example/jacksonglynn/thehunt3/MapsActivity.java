@@ -1,18 +1,18 @@
 package com.example.jacksonglynn.thehunt3;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -28,26 +28,53 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.util.ArrayList;
 
+/***************************************************************************************************
+ *
+ * The following class generates the Easy page of the Scavenger Hunt game.
+ *
+ * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
+ * @version (2/20/2017)
+ **************************************************************************************************/
 public class MapsActivity extends Easy implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener{
 
-    Location mLastLocation;
-    GoogleApiClient mGoogleApiClient;
-    Marker mCurrLocationMarker;
-    LocationRequest mLocationRequest;
+    /*Creates the location*/
+    private Location mLastLocation;
+
+    /*Creates the GoogleApiClient*/
+    private GoogleApiClient mGoogleApiClient;
+
+    /*Creates a marker*/
+    private Marker mCurrLocationMarker;
+
+    /*Creates a Location Request*/
+    private LocationRequest mLocationRequest;
+
+    /*Creates the Google map*/
     private GoogleMap mMap;
-    private Button back;
+
+    /*Creates the back button*/
+    private Button add;
+
+    /*Creates the counter*/
+    private int count = 0;
+
+    /*Creates a location Request*/
     private static final int EDIT_REQUEST = 1;
 
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
     public final static ArrayList<Marker> locList2 = new ArrayList<Marker>();
 
 
+    /***********************************************************************************************
+     *Creates the look of the Finished screen and tell the texts what to put in it. It also
+     * tells the buttons what to do when clicked.
+     *@param savedInstanceState - creates the xml layout
+     **********************************************************************************************/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,40 +82,63 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
         //creates the back button and links it to the correct button in the class
-        back = (Button) findViewById(R.id.back);
+        add = (Button) findViewById(R.id.back);
 
-        //placeLoc = (TextView) findViewById(R.id.button_placeLocation);
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         /*******************************************************************************************
-         * Creates the button listener for back. This tells the buttons what to do when it is
+         * Creates the button listener for add. This tells the buttons what to do when it is
          * clicked.
          ******************************************************************************************/
-        back.setOnClickListener(new View.OnClickListener() {
+        add.setOnClickListener(new View.OnClickListener() {
 
 
             /***************************************************************************************
-             * tells the back button to go back to the preSaved class
+             * tells the add button to add the location to an array
              *
              * @param v - the button when clicked
              **************************************************************************************/
             @Override
             public void onClick(View v) {
-                locList.add(locList2.get(0));
-                Intent intent = new Intent(getApplicationContext(), Easy.class);
-                startActivity(intent);
+                if(count ==0) {
+                    locList.add(locList2.get(0));
+                    AlertDialog alertDialog = new AlertDialog.Builder(MapsActivity.this).create();
+                    alertDialog.setTitle("Location has been saved");
+                    alertDialog.setMessage("Your Location has been saved. Please touch the undo " +
+                            "button to return.");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL,"OK",
+                            new DialogInterface.OnClickListener(){
+                       public void onClick(DialogInterface dialog, int which){
+                           dialog.dismiss();
+                       }
+                    });
+                    alertDialog.show();
+                    count++;
+                }
+                else{
+                    AlertDialog alertDialog = new AlertDialog.Builder(MapsActivity.this).create();
+                    alertDialog.setTitle("Press undo to return");
+                    alertDialog.setMessage("Please touch the undo button to return.");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL,"OK",
+                            new DialogInterface.OnClickListener(){
+                        public void onClick(DialogInterface dialog, int which){
+                            dialog.dismiss();
+                        }
+                    });
+                    alertDialog.show();
+                }
             }
         });
 
     }
 
 
-    /**
+    /***********************************************************************************************
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera. In this case,
@@ -96,8 +146,8 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
-     */
-
+     * @param googleMap - creates the map
+     **********************************************************************************************/
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -116,7 +166,18 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
             mMap.setMyLocationEnabled(true);
         }
 
+        /*******************************************************************************************
+        * Creates the click listener for the map. This tells the maps what to do when it is
+        * clicked.
+        *******************************************************************************************/
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+
+
+            /***************************************************************************************
+             * Creates the click listener for the map. This tells the maps what to do when it is
+             * clicked.
+             * @param latLng - gets the lat and long.
+             **************************************************************************************/
             @Override
             public void onMapClick(final LatLng latLng) {
                 mMap.clear();
@@ -124,18 +185,20 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
                 Marker marker = mMap.addMarker(new MarkerOptions().position(latLng)
                         .icon(BitmapDescriptorFactory
                                 .defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-                                .draggable(true));
+                        .draggable(true));
                 locList2.add(marker);
-
             }
-
-//        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         });
     }
 
+
+    /***********************************************************************************************
+     * Creates the result listener for the map. This tells the maps what to do when it is
+     * clicked.
+     * @param data - where the place is
+     * @param requestCode - where the request is coming from
+     * @param resultCode  - where the result should go
+     **********************************************************************************************/
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -150,6 +213,11 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
         }
     }
 
+
+    /*******************************************************************************************
+     * Creates the Google Api for the map. This tells the maps what to do when it is
+     * created
+     *******************************************************************************************/
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -159,6 +227,11 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
         mGoogleApiClient.connect();
     }
 
+
+    /*******************************************************************************************
+     * Creates the Google Api for the map. This tells the maps what to do when it is
+     * created
+     *******************************************************************************************/
     @Override
     public void onConnected(Bundle bundle) {
         mLocationRequest = new LocationRequest();
@@ -172,16 +245,30 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
         }
     }
 
+
+    /*******************************************************************************************
+     * Does nothing it was just needed
+     * @param i -some int
+     *******************************************************************************************/
     @Override
     public void onConnectionSuspended(int i) {
 
     }
 
+    /*******************************************************************************************
+     * does nothing it was just needed
+     * @param connectionResult - some connection result
+     *******************************************************************************************/
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
 
+
+    /*******************************************************************************************
+     * Tells the map what to do when the location is changed
+     * @param location - location of marker
+     *******************************************************************************************/
     @Override
     public void onLocationChanged(Location location) {
         mLastLocation = location;
@@ -195,8 +282,6 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
         markerOptions.position(latLng);
         markerOptions.title("Current Position");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-        //mCurrLocationMarker = mMap.addMarker(markerOptions);
-
 
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
@@ -208,6 +293,9 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
         }
     }
 
+    /*******************************************************************************************
+     * Checks the location and asks for permission
+     *******************************************************************************************/
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public boolean checkLocationPermission(){
         if (ContextCompat.checkSelfPermission(this,
@@ -240,6 +328,13 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
         }
     }
 
+
+    /*******************************************************************************************
+     * Requests for permission from the api
+     * @param requestCode - request code needed for permission
+     * @param grantResults - the result granted
+     * @param permissions - the permission being asked
+     *******************************************************************************************/
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -274,4 +369,3 @@ public class MapsActivity extends Easy implements OnMapReadyCallback,
     }
 
 }
-

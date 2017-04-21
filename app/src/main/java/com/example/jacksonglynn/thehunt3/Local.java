@@ -70,6 +70,7 @@ public class Local extends Easy {
             @Override
             public void onClick(View v) {
                 namelist.clear();
+                locList.clear();
                 mlistItems.clear();
                 Intent intent = new Intent(getApplicationContext(), Easy.class);
                 startActivity(intent);

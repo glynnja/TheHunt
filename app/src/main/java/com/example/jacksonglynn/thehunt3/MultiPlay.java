@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.model.Marker;
+
 import java.util.ArrayList;
 
 /***************************************************************************************************
@@ -29,6 +31,8 @@ public class MultiPlay extends mCreated {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
     public final static ArrayList<String> playList2 = new ArrayList<String>();
 
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<Marker> locList4 = new ArrayList<Marker>();
 
     /*Creates the ListView shown in the xml*/
     private ListView plist;
@@ -36,8 +40,13 @@ public class MultiPlay extends mCreated {
     /*Creates the Text shown in the xml*/
     private TextView rules;
 
+    /*Creates a total at 0*/
     private int total = 0;
+
+    /*Creates an amount at 0*/
     private int amount = 0;
+
+
     /***********************************************************************************************
      *Creates the look of the local screen and tells it what to put in it. It also
      * tells the buttons what to do when clicked.
@@ -60,15 +69,10 @@ public class MultiPlay extends mCreated {
         //creates the back button and links them to the correct button in the class
         back = (Button) findViewById(R.id.back);
 
-
-//
-//        final ArrayAdapter<String> adpt2 = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_list_item_multiple_choice, playList);
         final ArrayAdapter<String> adpt2 = new ArrayAdapter<String>(this,
                android.R.layout.simple_list_item_multiple_choice, multName);
         plist.setAdapter(adpt2);
         plist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-
 
         //Tells the text box clue what to put into it.
         rules.setText("Check a Hunt You Wish To Play. \n" +
@@ -90,27 +94,19 @@ public class MultiPlay extends mCreated {
             public void onClick(View v) {
                 SparseBooleanArray checkedItemPositions = plist.getCheckedItemPositions();
                 int itemCount = plist.getCount();
-                //for(int i=itemCount-1; i >= 0; i--){
+
+                //adds everything one by one
                  for(int i = 0; i< itemCount; i++){
                     total = total + arraycount.get(i);
                         if (checkedItemPositions.get(i)) {
                             playList.add(multName.get(i));
+                            amount = total - arraycount.get(i);
 
-                           // arraycount.get(i);
-                           amount = total - arraycount.get(i);
-                          //  multClues = multarray.get(i);
-                            //multClues.addAll(multarray.get(i));
-                            //multClues[amount][total]
-                            //multClues.get[amount][total];
+                            //adds the clues and locations one by one
                             for(int c= amount; c < total; c++){
                                 playList2.add(multClues.get(c));
+                                locList4.add(locList3.get(c));
                             }
-
-//                            int c =0;
-//                            while (multarray.get(i).get(c) != null){
-//                                multClues.add(multarray.get(i).get(c));
-//                                c++;
-//                            }
                             Intent intent = new Intent(getApplicationContext(), FinishedPlay.class);
                             startActivity(intent);
                         }

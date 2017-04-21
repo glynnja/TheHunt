@@ -1,10 +1,8 @@
 package com.example.jacksonglynn.thehunt3;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
 import android.util.SparseBooleanArray;
 import android.widget.ArrayAdapter;
@@ -14,6 +12,9 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.gms.maps.model.Marker;
+
 import java.util.ArrayList;
 
 /***************************************************************************************************
@@ -30,13 +31,11 @@ public class mEasy extends Multiplayer {
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
     public final static ArrayList<String> multlist = new ArrayList<String>();
 
-//    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
-//    public final static ArrayList<ArrayList<String>> multarray = new ArrayList<ArrayList<String>>();
-
     /*Creates the ArrayList shown in the xml and declares it as a static variable*/
     public final static ArrayList<Integer> arraycount = new ArrayList<Integer>();
 
-
+    /*Creates the ArrayList shown in the xml and declares it as a static variable*/
+    public final static ArrayList<Marker> locList3 = new ArrayList<Marker>();
 
     /*Creates the buttons on the main screen */
     private Button add, finish, back, delete;// map;
@@ -47,10 +46,8 @@ public class mEasy extends Multiplayer {
     /*Creates the ListView shown in the xml*/
     private ListView mHunt;
 
-//    /*Creates the ListView shown in the xml*/
-//    private RecyclerView list2;
-
-    public int count = 0;
+    /*Creates a counter*/
+    private int count = 0;
 
     /*Creates the Text shown in the xml*/
     private TextView clue, hName;
@@ -61,7 +58,6 @@ public class mEasy extends Multiplayer {
      * tells the buttons what to do when clicked.
      *@param savedInstanceState - creates the xml layout
      **********************************************************************************************/
-    @SuppressLint("SetTextI18n")
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,14 +78,8 @@ public class mEasy extends Multiplayer {
         //creates the editText and links it to the correct editText in the class
         name = (EditText) findViewById(R.id.name);
 
-//        //creates the listView and links it to the correct listView in the class
-//        list2 = (RecyclerView) findViewById(R.id.list2);
-
         //creates the add button and links it to the correct button in the class
         add = (Button) findViewById(R.id.add);
-
-//        //creates the location button and links it to the correct button in the class
-//        map = (Button) findViewById(R.id.map);
 
         //creates the delete button and links it to the correct button in the class
         delete = (Button) findViewById(R.id.delete);
@@ -105,12 +95,6 @@ public class mEasy extends Multiplayer {
                 android.R.layout.simple_list_item_multiple_choice, multE);
         mHunt.setAdapter(adpt);
         mHunt.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        //list2.setAdapter(adpt);
-
-//        final ArrayAdapter<String> adpt = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_list_item_multiple_choice, mlistItems);
-//        list.setAdapter(adpt);
-//        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         //Tells the text box clue what to put into it.
         clue.setText("Enter Your Clue: ");
@@ -119,69 +103,7 @@ public class mEasy extends Multiplayer {
         //Tells the text box clue what to put into it.
         hName.setText("Name Your Scavenger Hunt: ");
         hName.setMovementMethod(new ScrollingMovementMethod());
-        /*******************************************************************************************
-         * Creates the button listener for add. This tells the buttons what to do when it is
-         * clicked.
-         ******************************************************************************************/
-//        list.setOnItemSelectedListener(new View.OnContextClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                m_listItems.remove(list.toString());
-//            }
-//
-//        });
-//        list.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                SparseBooleanArray checkedPositions = new SparseBooleanArray();
-//                checkedPositions.clear();
-//                checkedPositions = list.getCheckedItemPositions();
-//                int size = checkedPositions.size();
-//                if (size != 0) {
-//
-//                    for (int i = 0; i <= size; i++) {
-//                        if (checkedPositions.valueAt(i)) {
-//                            list.clear(list.getItemAtPosition(i));
-//                            m_listItems.remove(list.getItemAtPosition());
-//                            list.setAdapter(adpt);
-//                            //list.notifyDataSetChanged();
-//                        }
-//                    }
-//                } else {
-//                }
-//            }
-//        });
 
-        //  list.setOnClickListener(new View.OnClickListener() {
-        // list.setItemChecked(new View.OnClickListener() {
-        //   list.setItemChecked(this, View.OnClickListener());{
-//            /***************************************************************************************
-//             * tells the back button to go back to the easy class
-//             *
-//             * @param v - the button when clicked
-//             **************************************************************************************/
-//           // @Override
-//            public void onItemClick(final View v) {
-//                AlertDialog.Builder mes = new AlertDialog.Builder(Easy.this);
-//                mes.setTitle("Delete?");
-//                mes.setMessage("Are you sure you want to delete?");
-//                mes.setNegativeButton("Cancel", null);
-//                mes.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        mlistItems.remove(v);
-//                        adpt.notifyDataSetChanged();
-//                    }});
-//                }
-//            });
-
-//        list.setOnLongClickListener(new View.OnLongClickListener()
-//                                   {
-//                                       @Override
-//                                       public boolean onLongClick(View view) {
-//                                           remove(listView.indexOfChild(view));
-//                                           return true;
-//                                       }
-//                                   });
-      //  int count = 0;
 
         /*******************************************************************************************
          * Creates the button listener for delete. This tells the buttons what to do when it is
@@ -203,6 +125,7 @@ public class mEasy extends Multiplayer {
                 for(int i=itemCount-1; i >= 0; i--){
                     if(checkedItemPositions.get(i)){
                         adpt.remove(multE.get(i));
+                        Easy.locList.remove(Easy.locList.get(i));
                         count--;
                     }
                 }
@@ -228,19 +151,18 @@ public class mEasy extends Multiplayer {
             @Override
             public void onClick(View v) {
                 String ag = enter.getText().toString().trim();
+
                 //erases the edit text after submitting an answer
-
-               // int count = 0;
-
                 if(ag.length() != 0){
+                    Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                    startActivity(intent);
                     multE.add(ag);
                     count++;
                     enter.setText("");
                 }
                 adpt.setNotifyOnChange(true);
                 mHunt.setAdapter(adpt);
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                startActivity(intent);
+
             }
         });
 
@@ -264,10 +186,8 @@ public class mEasy extends Multiplayer {
                     Intent intent = new Intent(getApplicationContext(), mCreated.class);
                     startActivity(intent);
                     multlist.add(hn);
+                    locList3.addAll(Easy.locList);
                     arraycount.add(count);
-                   // multE.clone();
-                   // multarray.add(multE);
-
 
                     //finish() saves the states of everything in the xml and transfers the array to
                     //finishedEasy's xml
@@ -323,26 +243,6 @@ public class mEasy extends Multiplayer {
                 startActivity(intent);
             }
         });
-
-
-        /*******************************************************************************************
-         * Creates the button listener for location button. This tells the buttons what to do when
-         * it is clicked.
-         ******************************************************************************************/
-//        map.setOnClickListener(new View.OnClickListener() {
-//
-//
-//            /***************************************************************************************
-//             * tells the back button to go to the Multiplayer2.class
-//             *
-//             * @param v - the button when clicked
-//             **************************************************************************************/
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
     }
 }

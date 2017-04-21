@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import java.util.ArrayList;
 
 
 /***************************************************************************************************
@@ -18,14 +17,14 @@ import java.util.ArrayList;
  * @author Jackson Glynn, Mason Mahoney, Austin VanKempen
  * @version (2/20/2017)
  **************************************************************************************************/
-public class preGVSU extends ScavengerHunt{
+public class preGVSU extends preSaved{
     /*Creates the Array shown in the xml */
-    private String gvsuList[] = {"Go to the 4th floor of the Mary Idema Pew Library and look out over the balcony.",
+    private String gvsuList[] = {"Go to the 4th floor of the Mary Idema Pew Library.",
                                  "Find the movie theater in Kirkoff.", "Go downstairs in Kirkoff.",
                                  "Head over to the pond outside Kirkoff."};
 
-    /*Creates the back button */
-    private Button back;
+    /*Creates the back and done button */
+    private Button back, done;
 
     /*Creates the Text shown in sorry*/
     private TextView rules;
@@ -45,6 +44,9 @@ public class preGVSU extends ScavengerHunt{
 
         //creates the text rules and links it to the correct text box in the xml
         rules = (TextView) findViewById(R.id.rules);
+
+        //creates the back button and links it to the correct button in the class
+        done = (Button) findViewById(R.id.done);
 
         //creates the listView and links it to the correct listView in the class
         gvsu = (ListView) findViewById(R.id.gvsu);
@@ -80,6 +82,25 @@ public class preGVSU extends ScavengerHunt{
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), preSaved.class);
                 startActivity(intent);
+            }
+        });
+
+
+        /*******************************************************************************************
+         * Creates the button listener for back. This tells the buttons what to do when it is
+         * clicked.
+         ******************************************************************************************/
+        done.setOnClickListener(new View.OnClickListener() {
+
+
+            /***************************************************************************************
+             * tells the back button to go back to the local class
+             * @param v - the button when clicked
+             **************************************************************************************/
+            @Override
+            public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), FinishedPre.class);
+                        startActivity(intent);
             }
         });
 
